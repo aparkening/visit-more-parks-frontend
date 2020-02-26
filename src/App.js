@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Button variant="outline-primary">Primary</Button>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
