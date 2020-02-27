@@ -20,27 +20,9 @@ class App extends Component {
     // Show initial array (should be empty)
     // console.log(this.props)
     // this.props.fetchEvents()
-
+    this.props.setupAuth()
 
   }
-
-  setHeaders
-  headers(){
-    return {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': this.csrf
-    }
-  }
-
-  async authSetup(){
-    const res = await fetch(`${this.baseURL}/auth-check`,{
-      credentials: 'include'
-    })
-    const body = await res.json()
-    this.csrf = body.csrf_auth_token
-  }
-
 
   render() {
     return (
@@ -62,7 +44,8 @@ const mapStateToProps = state => {
   return {
     parks: state.parks,
     events: state.events,
-    loading: state.loading
+    loading: state.loading,
+    csrf: state.csrf
   }
 }
  
@@ -73,4 +56,5 @@ const mapDispatchToProps = dispatch => {
     setupAuth: () => dispatch(setupAuth())
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
