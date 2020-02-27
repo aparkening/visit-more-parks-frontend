@@ -1,11 +1,20 @@
 import { combineReducers } from "redux";
-import * as reducers from './reducers';
+// import * as reducers from './reducers';
 
 // As separate files
-// import eventsReducer from './reducers/eventsReducer';
-// import parksReducer from './reducers/parksReducer';
+import eventsReducer from './eventsReducer';
+import parksReducer from './parksReducer';
+// import authReducer from './reducers/authReducer';
+
  
-export default combineReducers(reducers);
+export default combineReducers({
+  eventsReducer,
+  parksReducer
+});
+
+
+//parks: parksReducer
+// csrf: authReducer
 
 // As separate fields
 // const rootReducer = combineReducers({
