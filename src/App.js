@@ -5,13 +5,12 @@ import {
   Route, 
   Switch
 } from 'react-router-dom';
+import { fetchEvents } from './actions/eventActions'
 
 import Home from './components/Home';
 import Parks from './components/Parks';
 import Events from './components/Events';
 import Navigation from './components/Navigation';
-
-// import Button from 'react-bootstrap/Button';
 
 class App extends Component {
 
@@ -27,7 +26,22 @@ class App extends Component {
       </Router>
     );
   }         
-
 }
 
-export default App;
+
+// Make parks, events, and loading available
+const mapStateToProps = state => {
+  return {
+    parks: state.parks,
+    events: state.events,
+    loading: state.loading
+  }
+}
+ 
+// Make fetchEvents() available on mount
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchEvents: () => dispatch(fetchEvents())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)
