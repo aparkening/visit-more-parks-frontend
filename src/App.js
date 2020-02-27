@@ -9,7 +9,7 @@ import {
 import Home from './components/Home';
 import Parks from './components/Parks';
 import Events from './components/Events';
-
+import Navbar from './components/Navigation';
 
 import Button from 'react-bootstrap/Button';
 
@@ -19,10 +19,10 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <NavBar />
-          <Route exact path="/" component={Home} />
+          <Navigation />
           <Route path='/parks' component={Parks} />
           <Route path='/events' component={Events} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     );
