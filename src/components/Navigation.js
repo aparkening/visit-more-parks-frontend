@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Nav } from "react-bootstrap";
 
 class Navigation extends Component {
   render() {
     return (
-      <Navbar bg="primary" expand="true" role="navigation">
+      <Navbar className="justify-content-center" bg="coffee" variant="dark" expand role="navigation">
         <Navbar.Brand href="/">Visit More Parks</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="/events">Events</Nav.Link>
-          <Nav.Link href="/parks">Parks</Nav.Link>
+        <Nav>
+        <Nav.Item>
+            <Nav.Link href="/" activeClassName="active">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/events" activeClassName="active">Events</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/parks" activeClassName="active">Parks</Nav.Link>
+          </Nav.Item>
         </Nav>
       </Navbar>
     )
