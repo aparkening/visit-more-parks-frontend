@@ -12,6 +12,7 @@ const Parks = ({ parks, handleChangeOfHeart }) => {
 
     return (
       <div>
+        Parks are here
       {/* 
       <div className={favorited ? "FavoriteParks" : ""}>
       <h2>{favorited ? "Favorited Parks" : "Remaining Parks"}</h2> 
