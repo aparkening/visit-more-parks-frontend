@@ -6,6 +6,7 @@ import {
   Switch
 } from 'react-router-dom';
 import { fetchEvents } from './actions/eventActions'
+import { setupAuth } from './actions/authActions'
 
 import Home from './components/Home';
 import Parks from './components/Parks';
@@ -13,6 +14,33 @@ import Events from './components/Events';
 import Navigation from './components/Navigation';
 
 class App extends Component {
+
+  // Launch fetchEvents when component mounted
+  componentDidMount() {
+    // Show initial array (should be empty)
+    // console.log(this.props)
+    // this.props.fetchEvents()
+
+
+  }
+
+  setHeaders
+  headers(){
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': this.csrf
+    }
+  }
+
+  async authSetup(){
+    const res = await fetch(`${this.baseURL}/auth-check`,{
+      credentials: 'include'
+    })
+    const body = await res.json()
+    this.csrf = body.csrf_auth_token
+  }
+
 
   render() {
     return (
@@ -41,7 +69,8 @@ const mapStateToProps = state => {
 // Make fetchEvents() available on mount
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: () => dispatch(fetchEvents())
+    fetchEvents: () => dispatch(fetchEvents()),
+    setupAuth: () => dispatch(setupAuth())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
