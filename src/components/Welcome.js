@@ -2,7 +2,7 @@ import React from 'react';
 
 const Welcome = () => (
   <div>
-    <p>Welcome, let's Visit More Parks!</p>
+    <h1>Welcome, let's Visit More Parks!</h1>
   </div>
 )
 export default Welcome
