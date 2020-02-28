@@ -11,9 +11,12 @@ import './custom.scss';
 import './index.css';
 
 // import rootReducer from './reducers';
-import eventsReducer from './reducers/eventsReducer';
+// import eventsReducer from './reducers/eventsReducer';
+// const store = createStore(eventsReducer, applyMiddleware(thunk))
 
-const store = createStore(eventsReducer, applyMiddleware(thunk))
+
+import authReducer from './reducers/authReducer';
+const store = createStore(authReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
