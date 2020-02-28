@@ -39,7 +39,7 @@ class App extends Component {
 
     displayHome = () => {
       return (
-        this.props.activeUser ? <Dashboard token={this.props.csrf} active={this.props.activeUser}/> : <Welcome />
+        this.props.activeUser ? <Dashboard token={this.props.csrf} active={this.props.activeUser} loading={this.props.loading}/> : <Welcome />
       );
     };
 
@@ -49,15 +49,18 @@ class App extends Component {
         <Router>
           <Navigation active={this.props.activeUser} removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.loading} />
           
+          <main role="main" class="container">
+
           {this.props.csrf}
           
-          <Switch>
-            <Route exact path="/">{this.displayHome}</Route>
-            <Route path='/parks' component={ParksContainer} />
-            <Route path='/events' component={EventsContainer} />
-            {/* <Route path='/login'><Login token={this.props.csrf} active={this.props.activeUser} /></Route>
-            <Route path='/logout'><Logout token={this.props.csrf} active={this.props.activeUser} /></Route> */}
-          </Switch>
+            <Switch>
+              <Route exact path="/">{this.displayHome}</Route>
+              <Route path='/parks' component={ParksContainer} />
+              <Route path='/events' component={EventsContainer} />
+              {/* <Route path='/login'><Login token={this.props.csrf} active={this.props.activeUser} /></Route>
+              <Route path='/logout'><Logout token={this.props.csrf} active={this.props.activeUser} /></Route> */}
+            </Switch>
+          </main>
         </Router>
       );
     }
