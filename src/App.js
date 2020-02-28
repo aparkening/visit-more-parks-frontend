@@ -5,12 +5,13 @@ import {
   Route, 
   Switch
 } from 'react-router-dom';
-import { fetchEvents } from './actions/eventActions'
-// import { setupAuth } from './actions/authActions'
+// import { fetchEvents } from './actions/eventActions'
+import { setupAuth } from './actions/authActions'
 
 // import { fetchCats } from './actions/catActions'
 // import CatList from './components/CatList'
 
+import Login from './components/Login';
 import Home from './components/Home';
 import ParksContainer from './containers/ParksContainer';
 import EventsContainer from './containers/EventsContainer';
@@ -18,14 +19,11 @@ import Navigation from './components/Navigation';
 
 class App extends Component {
 
-  // Launch fetchEvents when component mounted
+  // Get server authorization when component mounted
   componentDidMount() {
-    // Show initial array (should be empty)
-    // console.log(this.props)
-    this.props.fetchEvents()
-    // this.props.setupAuth()
-
-    // this.props.fetchCats()
+    this.props.setupAuth()
+ 
+    // this.props.fetchEvents()
   }
 
   // render() {
@@ -41,6 +39,8 @@ class App extends Component {
       return (
         <Router>
           <Navigation />
+          <Login token={this.props.csrf}/>
+
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path='/parks' component={ParksContainer} />
@@ -60,14 +60,13 @@ const mapStateToProps = state => {
   //   loading: state.loading
   // }
   return {
-    events: state.events,
-    loading: state.loading
+    loading: state.loading,
+    csrf: state.csrf
   }
 }
 // parks: state.parks,
 // events: state.events,
-// loading: state.loading,
-// csrf: state.csrf
+
 
  
 // Make fetchEvents() available on mount
@@ -76,7 +75,7 @@ const mapDispatchToProps = dispatch => {
   //   fetchCats: () => dispatch(fetchCats())
   // }
   return {
-    fetchEvents: () => dispatch(fetchEvents())
+    setupAuth: () => dispatch(setupAuth())
   }
 }
 // , setupAuth: () => dispatch(setupAuth())
