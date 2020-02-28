@@ -1,53 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+// import EventInput from '../components/EventInput'
 import Parks from '../components/Parks'
 
+import { fetchParks, favoritePark, unFavoritePark } from '../actions/parkActions'
+
 class ParksContainer extends Component {
-  constructor(){
-    super()
-    this.state = {
-      parks: []
-    }
+  componentDidMount() {
+    this.props.fetchParks(this.props.csrf)
   }
 
-  // componentDidMount() {
-  //   fetch("http://localhost:3000/parks")
-  //     .then(r=>r.json())
-  //     .then(parks => this.setState({parks: parks}))
-  // }
-
-  // handleLikeClick = (event) => {
-  //   let newStatus
-  //   if (event.target.tagName === "IMG") {newStatus = "undecided"}
-  //   else {newStatus =  event.target.className === "fav-button" ? "favorited" : ""}
-  //   const parks = this.state.parks.map(park => {
-  //     if (parseInt(parks.id) === parseInt(event.target.id) || park.id == event.target.className) {
-  //       const newPark = Object.assign({}, park)
-  //       newPark.status = newStatus
-  //       return newPark
-  //     } else {
-  //       return park
-  //     }
-  //   })
-  //   this.setState({
-  //     parks: parks
-  //   })
-  // }
-
   render() {
+    // Investigate when loading occurs
+    // console.log(this.props.loading)
 
-    return (
-      <div className="Parks">
-        <Parks
-          handleChangeOfHeart={this.handleFavClick}
-          parks={this.state.parks.filter(park => park.status === "favorited")}
-        />
-        <Parks
-          handleChangeOfHeart={this.handleFavClick}
-          parks={this.state.parks}
+    return ( 
+      <div className="ParksContainer container">
+        <h1>Parks</h1>
+        {/* <EventInput addEvent={this.props.addEvent} /> */}
+        <Parks 
+          parks={this.props.parks}
+          favoritePark={this.props.favoritePark}
+          unFavoritePark={this.props.unFavoritePark}
+          loading={this.props.loading}
         />
       </div>
     );
   }
 }
 
-export default ParksContainer;
+const mapStateToProps = state => {
+  return {
+    csrf: state.csrf,
+    parks: state.parks,
+    loading: state.loading
+  }  
+}
+
+const mapDispatchToProps = dispatch => ({
+  fetchParks: (token) => dispatch(fetchParks(token)),
+  favoritePark: (token, id) => dispatch(favoritePark(token, id)),
+  unFavoritePark: (token, id) => dispatch(unFavoritePark(token, id))  
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ParksContainer)

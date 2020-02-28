@@ -1,20 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+// import EventInput from '../components/EventInput'
+import Events from '../components/Events'
+
+import { fetchEvents, deleteEvent, updateEvent } from '../actions/eventActions'
 
 class EventsContainer extends Component {
-  constructor(){
-    super()
-    this.state = {
-      events: []
-    }
+  componentDidMount() {
+    this.props.fetchEvents()
   }
 
   render() {
-    return (
-      <div className="Events">
-        Events are here
+    // Investigate when loading occurs
+    // console.log(this.props.loading)
+
+    return ( 
+      <div className="EventsContainer container">
+        <h1>Eventds</h1>
+        {/* <EventInput addEvent={this.props.addEvent} /> */}
+        <Events 
+          events={this.props.events}
+          deleteEvent={this.props.deleteEvent}
+          updateEvent={this.props.updateEvent}
+          loading={this.props.loading}
+        />
       </div>
     );
   }
 }
 
-export default EventsContainer;
+const mapStateToProps = state => {
+  return {
+    csrf: state.csrf,
+    events: state.events,
+    loading: state.loading
+  }  
+}
+
+const mapDispatchToProps = dispatch => ({
+  fetchEvents: (token) => dispatch(fetchEvents(token)),
+  deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
+  updateEvent: (token, id) => dispatch(updateEvent(token, id))  
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer)
