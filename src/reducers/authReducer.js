@@ -1,4 +1,4 @@
-const authReducer = (state = { csrf: null, loading: false }, action) => {
+const authReducer = (state = { csrf: "", loading: false }, action) => {
   switch(action.type) {
     case 'GETTING_AUTHORIZATION':
       return {
@@ -12,12 +12,12 @@ const authReducer = (state = { csrf: null, loading: false }, action) => {
         csrf: action.csrf,
         loading: false
       }
-    case 'REMOVE_AUTHORIZATION':
-      return {
-        ...state,
-        csrf: action.csrf,
-        loading: false
-      }      
+    // case 'REMOVE_AUTHORIZATION':
+    //   return {
+    //     ...state,
+    //     csrf: action.csrf,
+    //     loading: false
+    //   }      
     default:
       return state;
   }
