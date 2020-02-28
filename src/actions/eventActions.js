@@ -1,19 +1,21 @@
-export const fetchEvents = () => {
+const fetchEvents = (token) => {
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': token
+  }
+  console.log(headers)
   return (dispatch) => {
     dispatch({ type: 'LOADING_EVENTS' });
-    console.log("Events are loading")
-    dispatch({type: 'ADD_EVENTS', events: ['event 1', 'event 2']})
-
-    // fetch('http://localhost:3000/api/v1/events', {
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //     'X-CSRF-TOKEN': this.state.csrf
-    //   },
-    //   credentials: 'include'
-    // })
-    //   .then(response => response.json())
-    //   .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON }));
+    fetch('http://localhost:3000/api/v1/events',{
+      method: "DELETE",
+      headers,
+      credentials: 'include'
+    })   
+    .then(response => response.json())
+    .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON.events }));
+  };
+}
 
 
 
@@ -46,5 +48,4 @@ export const fetchEvents = () => {
     // }
 
 
-  };
-}
+export {fetchEvents}
