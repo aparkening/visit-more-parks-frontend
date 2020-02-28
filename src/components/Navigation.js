@@ -19,16 +19,9 @@ class Navigation extends Component {
           <Nav.Item>
             <Nav.Link href="/parks" activeclassname="active">Parks</Nav.Link>
           </Nav.Item>
-
-
           <Nav.Item>
             {this.props.active ? <Nav.Link onClick={() => this.props.removeAuth(this.props.token)} >Logout</Nav.Link> :  <Nav.Link href="http://localhost:3000/auth/google/redirect">Login with Google</Nav.Link>}
           </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link href="http://localhost:3000/auth/google/redirect">Login with Google</Nav.Link>
-          </Nav.Item>
-
         </Nav>
       </Navbar>
     )
