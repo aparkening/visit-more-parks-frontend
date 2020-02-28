@@ -6,13 +6,14 @@ import {
   Switch
 } from 'react-router-dom';
 // import { fetchEvents } from './actions/eventActions'
-import { setupAuth } from './actions/authActions'
+import { setupAuth, removeAuth } from './actions/authActions'
 
 // import { fetchCats } from './actions/catActions'
 // import CatList from './components/CatList'
 
 import Login from './components/Login';
-import Home from './components/Home';
+import Welcome from './components/Welcome';
+import Dashboard from './components/Dashboard';
 import ParksContainer from './containers/ParksContainer';
 import EventsContainer from './containers/EventsContainer';
 import Navigation from './components/Navigation';
@@ -35,16 +36,27 @@ class App extends Component {
   //     </div>
   //   );
   // }   
+
+    displayHome = () => {
+      return (
+        this.props.activeUser ? <Dashboard token={this.props.csrf} active={this.props.activeUser}/> : <Welcome />
+      );
+    };
+
+
     render() {
       return (
         <Router>
-          <Navigation />
-          <Login token={this.props.csrf}/>
-
+          <Navigation active={this.props.activeUser} removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.loading} />
+          
+          {this.props.csrf}
+          
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/">{this.displayHome}</Route>
             <Route path='/parks' component={ParksContainer} />
             <Route path='/events' component={EventsContainer} />
+            {/* <Route path='/login'><Login token={this.props.csrf} active={this.props.activeUser} /></Route>
+            <Route path='/logout'><Logout token={this.props.csrf} active={this.props.activeUser} /></Route> */}
           </Switch>
         </Router>
       );
@@ -55,13 +67,10 @@ class App extends Component {
 
 // Make parks, events, and loading available
 const mapStateToProps = state => {
-  // return {
-  //   catPics: state.cats,
-  //   loading: state.loading
-  // }
   return {
     loading: state.loading,
-    csrf: state.csrf
+    csrf: state.csrf,
+    activeUser: state.activeUser
   }
 }
 // parks: state.parks,
@@ -69,15 +78,14 @@ const mapStateToProps = state => {
 
 
  
-// Make fetchEvents() available on mount
+// Make actions available as props
 const mapDispatchToProps = dispatch => {
-  // return {
-  //   fetchCats: () => dispatch(fetchCats())
-  // }
   return {
-    setupAuth: () => dispatch(setupAuth())
+    setupAuth: () => dispatch(setupAuth()),
+    // removeAuth: token => dispatch({ type: "LOG_OUT", token })
+    removeAuth: token => dispatch(removeAuth(token))
   }
 }
-// , setupAuth: () => dispatch(setupAuth())
+// , fetchEvents: () => dispatch(fetchEvents())
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
