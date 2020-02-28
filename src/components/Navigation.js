@@ -8,13 +8,13 @@ class Navigation extends Component {
         <Navbar.Brand href="/">Visit More Parks</Navbar.Brand>
         <Nav>
         <Nav.Item>
-            <Nav.Link href="/" activeClassName="active">Home</Nav.Link>
+            <Nav.Link href="/" activeclassname="active">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/events" activeClassName="active">Events</Nav.Link>
+            <Nav.Link href="/events" activeclassname="active">Events</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/parks" activeClassName="active">Parks</Nav.Link>
+            <Nav.Link href="/parks" activeclassname="active">Parks</Nav.Link>
           </Nav.Item>
         </Nav>
       </Navbar>
