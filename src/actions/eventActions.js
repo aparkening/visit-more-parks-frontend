@@ -8,7 +8,7 @@ const fetchEvents = (token) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_EVENTS' });
     fetch('http://localhost:3000/api/v1/events',{
-      method: "DELETE",
+      method: "GET",
       headers,
       credentials: 'include'
     })   
@@ -17,7 +17,43 @@ const fetchEvents = (token) => {
   };
 }
 
+const deleteEvent = (token, id) => {
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': token
+  }
+  console.log(headers)
+  return (dispatch) => {
+    dispatch({ type: 'DELETING_EVENT' });
+    fetch(`http://localhost:3000/api/v1/events/#{id}`,{
+      method: "DELETE",
+      headers,
+      credentials: 'include'
+    })   
+    .then(response => response.json())
+    .then(responseJSON => dispatch({ type: 'DELETE_EVENT', id }));
+  };
+}
 
+const updateEvent = (token, id) => {
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': token
+  }
+  console.log(headers)
+  return (dispatch) => {
+    dispatch({ type: 'UPDATING_EVENT' });
+    fetch(`http://localhost:3000/api/v1/events/#{id}`,{
+      method: "PATCH",
+      headers,
+      credentials: 'include'
+    })   
+    .then(response => response.json())
+    .then(responseJSON => dispatch({ type: 'UPDATE_EVENT', id }));
+  };
+}
 
     // const res = await fetch('http://localhost:3000/api/v1/events', {
     //   headers: {
@@ -48,4 +84,4 @@ const fetchEvents = (token) => {
     // }
 
 
-export {fetchEvents}
+export {fetchEvents, deleteEvent, updateEvent}
