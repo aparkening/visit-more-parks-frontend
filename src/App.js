@@ -49,9 +49,9 @@ class App extends Component {
         <Router>
           <Navigation active={this.props.activeUser} removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.loading} />
           
-          <main role="main" class="container">
+          <main role="main" className="container">
 
-          {this.props.csrf}
+          {/* {this.props.csrf} */}
           
             <Switch>
               <Route exact path="/">{this.displayHome}</Route>
