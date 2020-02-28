@@ -3,21 +3,27 @@ const parksReducer = (state = { parks: [], loading: false }, action) => {
     case 'LOADING_PARKS':
       return {
         ...state,
-        events: [...state.parks],
+        parks: [...state.parks],
         loading: true
       }
-    case 'ADD_FAVORITE':
+    case 'ADD_PARKS':
       return {
         ...state,
-        events: action.parks,
+        parks: action.parks,
         loading: false
       }
-    case 'REMOVE_FAVORITE':
-      return {
-        ...state,
-        events: action.parks,
-        loading: false
-      }      
+    // case 'ADD_FAVORITE':
+    //   return {
+    //     ...state,
+    //     parks: action.parks,
+    //     loading: false
+    //   }
+    // case 'REMOVE_FAVORITE':
+    //   return {
+    //     ...state,
+    //     parks: action.parks,
+    //     loading: false
+    //   }      
     default:
       return state;
   }
