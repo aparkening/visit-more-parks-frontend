@@ -4,7 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 class Navigation extends Component {
   render() {
   
-    console.log(this.props)
+    // console.log(this.props)
   
     return (
       <Navbar className="justify-content-center" bg="coffee" variant="dark" expand role="navigation">
