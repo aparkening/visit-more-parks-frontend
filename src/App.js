@@ -5,13 +5,8 @@ import {
   Route, 
   Switch
 } from 'react-router-dom';
-// import { fetchEvents } from './actions/eventActions'
 import { setupAuth, removeAuth } from './actions/authActions'
 
-// import { fetchCats } from './actions/catActions'
-// import CatList from './components/CatList'
-
-import Login from './components/Login';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import ParksContainer from './containers/ParksContainer';
@@ -62,7 +57,6 @@ class App extends Component {
     }
 }
 
-// Make parks, events, and loading available
 const mapStateToProps = state => {
   return {
     loading: state.loading,
@@ -70,17 +64,12 @@ const mapStateToProps = state => {
     activeUser: state.activeUser
   }
 }
-// parks: state.parks,
-// events: state.events,
- 
-// Make actions available as props
+
 const mapDispatchToProps = dispatch => {
   return {
     setupAuth: () => dispatch(setupAuth()),
-    // removeAuth: token => dispatch({ type: "LOG_OUT", token })
     removeAuth: token => dispatch(removeAuth(token))
   }
 }
-// , fetchEvents: () => dispatch(fetchEvents())
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
