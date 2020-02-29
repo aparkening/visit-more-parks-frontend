@@ -5,7 +5,10 @@ import {
   Route, 
   Switch
 } from 'react-router-dom';
-import { setupAuth, removeAuth } from './actions/authActions'
+// import { authErrored, authLoading, authremoveAuth } from './actions/authActions'
+
+
+import { setupAuth, removeAuth } from './actions/authActions';
 
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
@@ -22,15 +25,26 @@ class App extends Component {
 
   displayHome = () => {
     return (
-      this.props.activeUser ? <Dashboard token={this.props.csrf} active={this.props.activeUser} loading={this.props.loading}/> : <Welcome />
+      this.props.csrf ? <Dashboard token={this.props.csrf} loading={this.props.isLoading}/> : <Welcome />
     );
   };
 
   render() {
+
+    if (this.props.hasErrored) {
+      return <p>Sorry! There was an error loading the items</p>;
+    }
+
+    // if (this.props.isLoading) {
+    //     return <p>Loading…</p>;
+    // }
+
     return (
       <Router>
-        <Navigation active={this.props.activeUser} removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.loading} />
+        <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
         
+        {console.log(this.props.csrf)}
+
         <main role="main" className="container">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
@@ -47,9 +61,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.loading,
+    // loading: state.loading,
     csrf: state.csrf,
-    activeUser: state.activeUser
+    hasErrored: state.authErrored,
+    isLoading: state.authLoading
   }
 }
 
