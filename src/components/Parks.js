@@ -1,26 +1,19 @@
-  
-import React from 'react'
-import Park from './Park'
+import React from 'react';
+import Park from './Park';
 
-const Parks = ({ parks, handleChangeOfHeart }) => {
-  const parkCards = parks.map(park =>
-    <Park
-      handleChangeOfHeart={handleChangeOfHeart}
-      key={park.npsId}
-      park={park}
-    />)
+const Parks = props => {
+  console.log("Parks")
+  console.log(props)
 
-    return (
-      <div>
-        Parks are here
-      {/* 
-      <div className={favorited ? "FavoriteParks" : ""}>
-      <h2>{favorited ? "Favorited Parks" : "Remaining Parks"}</h2> 
-      */}
+  const parks = props.parks.map(obj => <Park key={obj.id} park={obj} favoritePark={props.favoritePark} unFavoritePark={props.unFavoritePark} />)
 
-        { parkCards }
-      </div>
-    )
-}
+  return (
+    <div className="parks">
+      <ul>
+        {parks}
+      </ul>
+    </div>
+  )
+};
 
-export default Parks
+export default Parks;
