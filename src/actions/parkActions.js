@@ -56,7 +56,8 @@ export const favoritePark = (token, id) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'FAVORITING_PARK' });
+    // dispatch({ type: 'FAVORITING_PARK' });
+    dispatch(parksLoading(true));
     fetch(`http://localhost:3000/api/v1/parks/favorite/#{id}`,{
       method: "POST",
       headers,
@@ -75,7 +76,8 @@ export const unFavoritePark = (token, id) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'UN_FAVORITING_PARK' });
+    // dispatch({ type: 'UN_FAVORITING_PARK' });
+    dispatch(parksLoading(true));
     fetch(`http://localhost:3000/api/v1/parks/unfavorite/#{id}`,{
       method: "POST",
       headers,
