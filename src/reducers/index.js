@@ -5,6 +5,7 @@ import { combineReducers } from "redux";
 // import eventsReducer from './eventsReducer';
 import { authErrored, authLoading, csrf } from './authReducer';
 import { parksErrored, parksLoading, parks } from './parksReducer';
+import { eventsErrored, eventsLoading, events } from './eventsReducer';
  
 export default combineReducers({
   authErrored,
@@ -13,12 +14,12 @@ export default combineReducers({
   parksErrored,
   parksLoading,
   parks,
-  // eventsReducer
+  eventsErrored,
+  eventsLoading,
+  events,
 });
 
 
-//parks: parksReducer
-// csrf: authReducer
 
 // As separate fields
 // const rootReducer = combineReducers({
