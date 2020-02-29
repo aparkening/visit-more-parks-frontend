@@ -9,9 +9,7 @@ const Events = props => {
 
   return (
     <div className="events">
-      <ul>
-        {events}
-      </ul>
+      {events}
     </div>
   )
 };
