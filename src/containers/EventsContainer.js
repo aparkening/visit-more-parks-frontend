@@ -22,7 +22,7 @@ class EventsContainer extends Component {
           events={this.props.events}
           deleteEvent={this.props.deleteEvent}
           updateEvent={this.props.updateEvent}
-          loading={this.props.loading}
+          loading={this.props.isLoading}
         />
       </div>
     );
