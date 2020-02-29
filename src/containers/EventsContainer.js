@@ -7,7 +7,7 @@ import { fetchEvents, deleteEvent, updateEvent } from '../actions/eventActions'
 
 class EventsContainer extends Component {
   componentDidMount() {
-    this.props.fetchEvents()
+    this.props.fetchEvents(this.props.token)
   }
 
   render() {
@@ -31,7 +31,7 @@ class EventsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    csrf: state.csrf,
+    // csrf: state.csrf,
     events: state.events,
     loading: state.loading
   }  

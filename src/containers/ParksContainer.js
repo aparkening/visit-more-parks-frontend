@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import EventInput from '../components/EventInput'
 import Parks from '../components/Parks'
 
 import { fetchParks, favoritePark, unFavoritePark } from '../actions/parkActions'
 
 class ParksContainer extends Component {
   componentDidMount() {
-    this.props.fetchParks(this.props.csrf)
+    this.props.fetchParks(this.props.token)
   }
 
   render() {
@@ -17,7 +16,6 @@ class ParksContainer extends Component {
     return ( 
       <div className="ParksContainer container">
         <h1>Parks</h1>
-        {/* <EventInput addEvent={this.props.addEvent} /> */}
         <Parks 
           parks={this.props.parks}
           favoritePark={this.props.favoritePark}
@@ -31,7 +29,7 @@ class ParksContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    csrf: state.csrf,
+    // csrf: state.csrf,
     parks: state.parks,
     loading: state.loading
   }  
