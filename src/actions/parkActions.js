@@ -1,4 +1,26 @@
-const fetchParks = (token) => {
+export const parksErrored = (bool) => {
+  return {
+    type: 'PARKS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export const parksLoading = (bool) => {
+  return {
+    type: 'PARKS_LOADING',
+    isLoading: bool
+  };
+}
+
+export const parksFetchSuccess = (parks) => {
+  return {
+    type: 'PARKS_FETCH_SUCCESS',
+    parks
+  };
+}
+
+
+export const fetchParks = (token) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -6,18 +28,27 @@ const fetchParks = (token) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'LOADING_PARKS' });
+    dispatch(parksLoading(true));
+    // dispatch({ type: 'LOADING_PARKS' });
     fetch('http://localhost:3000/api/v1/parks',{
       method: "GET",
       headers,
       credentials: 'include'
     })   
-    .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'ADD_PARKS', events: responseJSON.parks }));
-  };
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(parksLoading(false));
+      return response;
+  })
+  .then((response) => response.json())
+  .then((res) => dispatch({ type: 'ADD_PARKS', parks: res.parks }))
+  .catch(() => dispatch(parksErrored(true)));
+  }
 }
 
-const favoritePark = (token, id) => {
+export const favoritePark = (token, id) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -36,7 +67,7 @@ const favoritePark = (token, id) => {
   };
 }
 
-const unFavoritePark = (token, id) => {
+export const unFavoritePark = (token, id) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -54,5 +85,3 @@ const unFavoritePark = (token, id) => {
     .then(responseJSON => dispatch({ type: 'REMOVE_FAVORITE', id }));
   };
 }
-
-export {fetchParks, favoritePark, unFavoritePark}
