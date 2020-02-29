@@ -20,7 +20,7 @@ class ParksContainer extends Component {
           parks={this.props.parks}
           favoritePark={this.props.favoritePark}
           unFavoritePark={this.props.unFavoritePark}
-          loading={this.props.loading}
+          loading={this.props.isLoading}
         />
       </div>
     );
@@ -29,9 +29,9 @@ class ParksContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    // csrf: state.csrf,
     parks: state.parks,
-    loading: state.loading
+    hasErrored: state.parksErrored,
+    isLoading: state.parksLoading
   }  
 }
 
