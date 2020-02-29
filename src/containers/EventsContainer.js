@@ -31,9 +31,9 @@ class EventsContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    // csrf: state.csrf,
     events: state.events,
-    loading: state.loading
+    hasErrored: state.eventsErrored,
+    isLoading: state.eventsLoading
   }  
 }
 
