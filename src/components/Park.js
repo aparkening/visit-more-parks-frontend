@@ -1,17 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-class Park extends Component {
-  render() {
-    const { park } = this.props;
+const Park = props => {
+  const { park } = props;
+
+  // console.log(props)  
+  {/* Add ternary for unfavorite <Button variant="outline-copper" size="sm" onClick={() => this.props.unFavoritePark(park.id)}>Unfavorite</Button> */}
+
+  if (props.loading) {
+    return (<div className="loader"></div>)
+  } else {
     return (
-      <div>
-        <li>
-          {park}
-          <button onClick={() => this.props.favoritePark(park.id)}> Favorite </button>
-          <button onClick={() => this.props.unFavoritePark(park.id)}> Unfavorite </button>
-        </li>
-      </div>
-    );
+      <Card className="park mb-4" bg="white" border="coffee">
+        <Card.Header as="h4"><Card.Link href={park.url}>{park.fullName}</Card.Link></Card.Header>
+        <Card.Body>
+          <Card.Text>{park.description}
+            
+          </Card.Text>
+          <Button variant="copper" size="sm" onClick={() => props.favoritePark(park.id)}>Favorite!</Button>
+        </Card.Body>
+      </Card>
+    )
   }
 };
 
