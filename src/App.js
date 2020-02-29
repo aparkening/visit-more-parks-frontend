@@ -25,7 +25,7 @@ class App extends Component {
 
   displayHome = () => {
     return (
-      this.props.csrf ? <Dashboard token={this.props.csrf} loading={this.props.isLoading}/> : <Welcome />
+      this.props.csrf ? <Dashboard token={this.props.csrf} loading={this.props.isLoading} /> : <Welcome />
     );
   };
 
@@ -43,7 +43,7 @@ class App extends Component {
       <Router>
         <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
         
-        {console.log(this.props.csrf)}
+        {/* {console.log(this.props.isLoading)} */}
 
         <main role="main" className="container">          
           <Switch>
