@@ -16,7 +16,7 @@ class EventsContainer extends Component {
 
     return ( 
       <div className="EventsContainer container">
-        <h1>Eventds</h1>
+        <h1>Events</h1>
         {/* <EventInput addEvent={this.props.addEvent} /> */}
         <Events 
           events={this.props.events}
