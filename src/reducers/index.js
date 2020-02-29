@@ -4,15 +4,15 @@ import { combineReducers } from "redux";
 // As separate files
 // import eventsReducer from './eventsReducer';
 import { authErrored, authLoading, csrf } from './authReducer';
-// import { parksErrored, parksLoading, parks } from './parksReducer';
+import { parksErrored, parksLoading, parks } from './parksReducer';
  
 export default combineReducers({
   authErrored,
   authLoading,
   csrf,
-  // parksErrored,
-  // parksLoading,
-  // parks,
+  parksErrored,
+  parksLoading,
+  parks,
   // eventsReducer
 });
 
