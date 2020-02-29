@@ -1,4 +1,25 @@
-const fetchEvents = (token) => {
+export const eventsErrored = (bool) => {
+  return {
+    type: 'EVENTS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export const eventsLoading = (bool) => {
+  return {
+    type: 'EVENTS_LOADING',
+    isLoading: bool
+  };
+}
+
+export const eventsFetchSuccess = (events) => {
+  return {
+    type: 'EVENTS_FETCH_SUCCESS',
+    events
+  };
+}
+
+export const fetchEvents = (token) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -6,18 +27,29 @@ const fetchEvents = (token) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'LOADING_EVENTS' });
+    dispatch(eventsLoading(true));
     fetch('http://localhost:3000/api/v1/events',{
       method: "GET",
       headers,
       credentials: 'include'
-    })   
-    .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON.events }));
+    })
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(eventsLoading(false));
+      return response;
+    })
+    .then((response) => response.json())
+    .then((res) => dispatch({ type: 'ADD_EVENTS', events: res.events }))
+    .catch(() => dispatch(eventsErrored(true)))
   };
 }
+    // .then(response => response.json())
+    // .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON.events }));
 
-const deleteEvent = (token, id) => {
+
+export const deleteEvent = (token, id) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -25,18 +57,29 @@ const deleteEvent = (token, id) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'DELETING_EVENT' });
+    dispatch(eventsLoading(true));
+    // dispatch({ type: 'DELETING_EVENT' });
     fetch(`http://localhost:3000/api/v1/events/#{id}`,{
       method: "DELETE",
       headers,
       credentials: 'include'
     })   
-    .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'DELETE_EVENT', id }));
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(eventsLoading(false));
+      return response;
+    })
+    .then((response) => response.json())
+    .then((res) => dispatch({ type: 'DELETE_EVENT', id }))
+    .catch(() => dispatch(eventsErrored(true)))
   };
 }
+  // .then(response => response.json())
+  // .then(responseJSON => dispatch({ type: 'DELETE_EVENT', id }));
 
-const updateEvent = (token, id) => {
+export const updateEvent = (token, id) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -44,16 +87,28 @@ const updateEvent = (token, id) => {
   }
   console.log(headers)
   return (dispatch) => {
-    dispatch({ type: 'UPDATING_EVENT' });
+    dispatch(eventsLoading(true));
+    // dispatch({ type: 'UPDATING_EVENT' });
     fetch(`http://localhost:3000/api/v1/events/#{id}`,{
       method: "PATCH",
       headers,
       credentials: 'include'
     })   
-    .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'UPDATE_EVENT', id }));
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(eventsLoading(false));
+      return response;
+    })
+    .then((response) => response.json())
+    .then((res) => dispatch({ type: 'UPDATE_EVENT', id }))
+    .catch(() => dispatch(eventsErrored(true)))
   };
 }
+    // .then(response => response.json())
+    // .then(responseJSON => dispatch({ type: 'UPDATE_EVENT', id }));
+
 
     // const res = await fetch('http://localhost:3000/api/v1/events', {
     //   headers: {
@@ -82,6 +137,3 @@ const updateEvent = (token, id) => {
     // } catch (err) {
     //   console.log("Error happened!")
     // }
-
-
-export {fetchEvents, deleteEvent, updateEvent}
