@@ -15,4 +15,4 @@ class Park extends Component {
   }
 };
 
-export default Event;
+export default Park;
