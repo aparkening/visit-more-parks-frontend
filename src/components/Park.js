@@ -1,20 +1,18 @@
-  
-import React from 'react'
+import React, { Component } from 'react';
 
-const Park = function({ park, handleChangeOfHeart }){
-  let returnVal
-  if (park) {
-    returnVal = <div className="Park">
-                  {park.fullName}
-                </div>
-  } else {
-     returnVal = <div>
-                   EMPTY or LOADING...
-                </div>
+class Park extends Component {
+  render() {
+    const { park } = this.props;
+    return (
+      <div>
+        <li>
+          {park}
+          <button onClick={() => this.props.favoritePark(park.id)}> Favorite </button>
+          <button onClick={() => this.props.unFavoritePark(park.id)}> Unfavorite </button>
+        </li>
+      </div>
+    );
   }
-  return (
-    returnVal
-  )
-}
+};
 
-export default Park
+export default Event;
