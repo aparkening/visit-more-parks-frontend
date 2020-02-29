@@ -63,8 +63,16 @@ export const favoritePark = (token, id) => {
       headers,
       credentials: 'include'
     })   
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(parksLoading(false));
+      return response;
+    })
     .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'ADD_FAVORITE', id }));
+    .then(res => dispatch({ type: 'ADD_FAVORITE', id }))
+    .catch(() => dispatch(parksErrored(true)))
   };
 }
 
@@ -83,7 +91,15 @@ export const unFavoritePark = (token, id) => {
       headers,
       credentials: 'include'
     })   
-    .then(response => response.json())
-    .then(responseJSON => dispatch({ type: 'REMOVE_FAVORITE', id }));
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      dispatch(parksLoading(false));
+      return response;
+    })
+    .then((response) => response.json())
+    .then((res) => dispatch({ type: 'REMOVE_FAVORITE', id }))
+    .catch(() => dispatch(parksErrored(true)))
   };
 }
