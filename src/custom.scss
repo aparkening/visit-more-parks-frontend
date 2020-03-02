@@ -9,6 +9,8 @@ $theme-colors: (
   "black-leather": #213A1B
 );
 
+
+// Spinner
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
@@ -17,10 +19,23 @@ $theme-colors: (
   height: 120px;
   animation: spin 2s linear infinite;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+// Event form
+.new-event {
+  border: .2em solid #ced4da;
+  border-radius: .5em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+
+// Date Time Picker
+.react-datetime-picker__wrapper {
+  border: none;
 }
 
 // Import Bootstrap and its default variables
