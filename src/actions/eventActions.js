@@ -25,7 +25,6 @@ export const fetchEvents = (token) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
   return (dispatch) => {
     dispatch(eventsLoading(true));
     fetch('http://localhost:3000/api/v1/events',{
@@ -55,9 +54,10 @@ export const addEvent = (obj, token) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log("Add Event triggered")
+  console.log("Adding event to Rails server...")
   console.log(obj)
-  console.log(token)
+
+  // console.log(token)
   return (dispatch) => {
     dispatch(eventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
@@ -87,7 +87,6 @@ export const deleteEvent = (token, id) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
   return (dispatch) => {
     dispatch(eventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
@@ -117,7 +116,6 @@ export const updateEvent = (token, id) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
   return (dispatch) => {
     dispatch(eventsLoading(true));
     // dispatch({ type: 'UPDATING_EVENT' });
