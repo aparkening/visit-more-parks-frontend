@@ -49,34 +49,36 @@ export const fetchEvents = (token) => {
     // .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON.events }));
 
 
-    export const addEvent = (event, token) => {
-      const headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': token
+export const addEvent = (obj, token) => {
+  const headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'X-CSRF-TOKEN': token
+  }
+  console.log("Add Event triggered")
+  console.log(obj)
+  console.log(token)
+  return (dispatch) => {
+    dispatch(eventsLoading(true));
+    // dispatch({ type: 'DELETING_EVENT' });
+    fetch(`http://localhost:3000/api/v1/events`,{
+      method: "POST",
+      headers,
+      credentials: 'include',
+      body: JSON.stringify(obj)
+    })   
+    .then((response) => {
+      if (!response.ok) {
+          throw Error(response.statusText);
       }
-      console.log(headers)
-      return (dispatch) => {
-        dispatch(eventsLoading(true));
-        // dispatch({ type: 'DELETING_EVENT' });
-        fetch(`http://localhost:3000/api/v1/events`,{
-          method: "POST",
-          headers,
-          credentials: 'include',
-          body: JSON.stringify(event)
-        })   
-        .then((response) => {
-          if (!response.ok) {
-              throw Error(response.statusText);
-          }
-          dispatch(eventsLoading(false));
-          return response;
-        })
-        .then((response) => response.json())
-        .then((res) => dispatch({ type: 'ADD_EVENT', event: res.event }))
-        .catch(() => dispatch(eventsErrored(true)))
-      };
-    }
+      dispatch(eventsLoading(false));
+      return response;
+    })
+    .then((response) => response.json())
+    .then((res) => dispatch({ type: 'ADD_EVENT', event: res.event }))
+    .catch(() => dispatch(eventsErrored(true)))
+  };
+}
 
 
 export const deleteEvent = (token, id) => {
