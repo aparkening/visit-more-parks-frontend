@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import EventInput from '../components/EventInput'
+
+import EventInput from '../components/EventInput'
 import Events from '../components/Events'
 
-import { fetchEvents, deleteEvent, updateEvent } from '../actions/eventActions'
+import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/eventActions'
 
 class EventsContainer extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class EventsContainer extends Component {
     return ( 
       <div className="EventsContainer container">
         <h1>Events</h1>
-        {/* <EventInput addEvent={this.props.addEvent} /> */}
+        <EventInput addEvent={this.props.addEvent} />
         <Events 
           events={this.props.events}
           deleteEvent={this.props.deleteEvent}
