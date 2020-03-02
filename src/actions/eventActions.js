@@ -69,7 +69,9 @@ export const addEvent = (obj, token) => {
     })   
     .then((response) => {
       if (!response.ok) {
-          throw Error(response.statusText);
+        // console.log("There's an error");
+        // console.log(obj) 
+        throw Error(response.statusText);
       }
       dispatch(eventsLoading(false));
       return response;
