@@ -23,19 +23,20 @@ export const events = (state = [], action) => {
       return action.events;
     case 'ADD_EVENT':
       // return action.event;
+      // console.log("Adding Event in reducer...")
+      // console.log(state)
+      // console.log(action)
+      // console.log(action.event)
       return { 
-        ...state, 
-        events: [...state.events, action.event] 
+        events: [...state, action.event] 
       }
     case 'DELETE_EVENT':
       return {
-        ...state,
-        events: [...state.events.slice(0, idx), ...state.events.slice(idx + 1)],
+        events: [...state.slice(0, idx), ...state.slice(idx + 1)],
       }
     case 'UPDATE_EVENT':
     return {
-      ...state,
-      events: [...state.events.slice(0, idx), action.event, ...state.events.slice(idx + 1)],
+      events: [...state.slice(0, idx), action.event, ...state.slice(idx + 1)],
     }
     default:
       return state;
