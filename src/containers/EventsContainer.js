@@ -39,6 +39,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchEvents: (token) => dispatch(fetchEvents(token)),
+  addEvent: (token, park_id) => dispatch(addEvent(token, park_id)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
   updateEvent: (token, id) => dispatch(updateEvent(token, id))  
 })
