@@ -18,9 +18,16 @@ class EventsContainer extends Component {
     return ( 
       <div className="EventsContainer container">
         <h1>Events</h1>
-        <EventInput addEvent={this.props.addEvent} />
+
+        <EventInput 
+          addEvent={this.props.addEvent} 
+          token={this.props.token}
+        />
+
         <Events 
           events={this.props.events}
+          token={this.props.token}
+          addEvent={this.props.addEvent}
           deleteEvent={this.props.deleteEvent}
           updateEvent={this.props.updateEvent}
           loading={this.props.isLoading}
@@ -40,7 +47,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchEvents: (token) => dispatch(fetchEvents(token)),
-  addEvent: (obj, token, park_id) => dispatch(addEvent(obj, token, park_id)),
+  addEvent: (obj, token) => dispatch(addEvent(obj, token)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
   updateEvent: (token, id) => dispatch(updateEvent(token, id))  
 })
