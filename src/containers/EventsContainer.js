@@ -8,12 +8,14 @@ import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/even
 
 class EventsContainer extends Component {
   componentDidMount() {
-    this.props.fetchEvents(this.props.token)
+    // this.props.fetchEvents(this.props.token)
   }
 
   render() {
     // Investigate when loading occurs
     // console.log(this.props.loading)
+
+    // debugger
 
     return ( 
       <div className="EventsContainer container">
@@ -47,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchEvents: (token) => dispatch(fetchEvents(token)),
-  addEvent: (obj, token) => dispatch(addEvent(obj, token)),
+  addEvent: (token, obj) => dispatch(addEvent(token, obj)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
   updateEvent: (token, id) => dispatch(updateEvent(token, id))  
 })
