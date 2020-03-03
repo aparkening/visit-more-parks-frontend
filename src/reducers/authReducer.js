@@ -47,6 +47,7 @@ export const csrf = (state = false, action) => {
       //   loading: false,
       //   activeUser: false
       // }      
+      console.log("Logging out")
       console.log(action);
       return action.csrf;
     default:
