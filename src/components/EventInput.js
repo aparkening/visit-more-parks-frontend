@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'react-uuid';
 
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
@@ -15,7 +14,6 @@ import DateTimePicker from 'react-datetime-picker';
 
 class EventInput extends Component {
   state = {
-    // id: uuid(),
     summary: "Visit This Park", 
     location: "123 Main Street", 
     description: "Explore park!\n\n----\n\nAbout the Park:\n#Park Description",
