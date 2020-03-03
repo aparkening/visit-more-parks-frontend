@@ -27,18 +27,12 @@ export const events = (state = [], action) => {
       // console.log(state)
       // console.log(action)
       // console.log(action.event)
-      
       // debugger
-
       return [...state, action.event];
     case 'DELETE_EVENT':
-      return {
-        events: [...state.slice(0, idx), ...state.slice(idx + 1)],
-      }
+      return [...state.slice(0, idx), ...state.slice(idx + 1)];
     case 'UPDATE_EVENT':
-    return {
-      events: [...state.slice(0, idx), action.event, ...state.slice(idx + 1)],
-    }
+    return [...state.slice(0, idx), action.event, ...state.slice(idx + 1)];
     default:
       return state;
   }
