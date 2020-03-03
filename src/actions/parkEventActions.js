@@ -26,7 +26,7 @@ export const fetchParkEvents = (token) => {
     'X-CSRF-TOKEN': token
   }
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    dispatch(parkEventsLoading(true));
     fetch('http://localhost:3000/api/v1/park-events',{
       method: "GET",
       headers,
@@ -36,12 +36,12 @@ export const fetchParkEvents = (token) => {
       if (!response.ok) {
           throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      dispatch(parkEventsLoading(false));
       return response;
     })
     .then((response) => response.json())
     .then((res) => dispatch({ type: 'ADD_PARK_EVENTS', parkEvents: res.events }))
-    .catch(() => dispatch(eventsErrored(true)))
+    .catch(() => dispatch(parkEventsErrored(true)))
   };
 }
 
@@ -56,7 +56,7 @@ export const addParkEvent = (token, obj) => {
 
   // console.log(token)
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    dispatch(parkEventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
     fetch(`http://localhost:3000/api/v1/park-events`,{
       method: "POST",
@@ -70,12 +70,12 @@ export const addParkEvent = (token, obj) => {
         // console.log(obj) 
         throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      dispatch(parkEventsLoading(false));
       return response;
     })
     .then((response) => response.json())
     .then((res) => dispatch({ type: 'ADD_PARK_EVENT', parkEvent: res.parkEvent }))
-    .catch(() => dispatch(eventsErrored(true)))
+    .catch(() => dispatch(parkEventsErrored(true)))
   };
 }
 
@@ -86,7 +86,7 @@ export const deleteParkEvent = (token, id) => {
     'X-CSRF-TOKEN': token
   }
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    dispatch(parkEventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
     fetch(`http://localhost:3000/api/v1/park-events/#{id}`,{
       method: "DELETE",
@@ -97,12 +97,12 @@ export const deleteParkEvent = (token, id) => {
       if (!response.ok) {
           throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      dispatch(parkEventsLoading(false));
       return response;
     })
     .then((response) => response.json())
     .then((res) => dispatch({ type: 'DELETE_PARK_EVENT', id }))
-    .catch(() => dispatch(eventsErrored(true)))
+    .catch(() => dispatch(parkEventsErrored(true)))
   };
 }
 
@@ -113,7 +113,7 @@ export const updateParkEvent = (token, id) => {
     'X-CSRF-TOKEN': token
   }
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    dispatch(parkEventsLoading(true));
     // dispatch({ type: 'UPDATING_EVENT' });
     fetch(`http://localhost:3000/api/v1/park-events/#{id}`,{
       method: "PATCH",
@@ -124,11 +124,11 @@ export const updateParkEvent = (token, id) => {
       if (!response.ok) {
           throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      dispatch(parkEventsLoading(false));
       return response;
     })
     .then((response) => response.json())
     .then((res) => dispatch({ type: 'UPDATE_PARK_EVENT', id }))
-    .catch(() => dispatch(eventsErrored(true)))
+    .catch(() => dispatch(parkEventsErrored(true)))
   };
 }
