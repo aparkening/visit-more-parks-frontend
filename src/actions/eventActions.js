@@ -60,7 +60,6 @@ export const addEvent = (token, obj) => {
   // console.log(token)
   return (dispatch) => {
     dispatch(eventsLoading(true));
-    // dispatch({ type: 'DELETING_EVENT' });
     fetch(`http://localhost:3000/api/v1/events`,{
       method: "POST",
       headers,
@@ -82,7 +81,6 @@ export const addEvent = (token, obj) => {
   };
 }
 
-
 export const deleteEvent = (token, id) => {
   const headers = {
     'Accept': 'application/json',
@@ -91,7 +89,6 @@ export const deleteEvent = (token, id) => {
   }
   return (dispatch) => {
     dispatch(eventsLoading(true));
-    // dispatch({ type: 'DELETING_EVENT' });
     fetch(`http://localhost:3000/api/v1/events/#{id}`,{
       method: "DELETE",
       headers,
@@ -99,7 +96,7 @@ export const deleteEvent = (token, id) => {
     })   
     .then((response) => {
       if (!response.ok) {
-          throw Error(response.statusText);
+        throw Error(response.statusText);
       }
       dispatch(eventsLoading(false));
       return response;
@@ -120,7 +117,6 @@ export const updateEvent = (token, id) => {
   }
   return (dispatch) => {
     dispatch(eventsLoading(true));
-    // dispatch({ type: 'UPDATING_EVENT' });
     fetch(`http://localhost:3000/api/v1/events/#{id}`,{
       method: "PATCH",
       headers,
