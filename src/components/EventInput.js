@@ -41,7 +41,7 @@ class EventInput extends Component {
     event.preventDefault();
     console.log("Submitting event...")
     const newEvent = {...this.state}
-    this.props.addEvent(newEvent, this.props.token );
+    this.props.addEvent(this.props.token, newEvent);
     // this.setState({
     //   text: '',
     // });
