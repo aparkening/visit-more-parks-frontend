@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Parks from '../components/Parks'
 
-import { fetchParks, favoritePark, unFavoritePark } from '../actions/parkActions'
+import { fetchParks } from '../actions/parkActions'
 
 class ParksContainer extends Component {
   componentDidMount() {
