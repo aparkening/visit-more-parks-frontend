@@ -40,7 +40,7 @@ export const fetchEvents = (token) => {
       return response;
     })
     .then((response) => response.json())
-    .then((res) => dispatch({ type: 'ADD_EVENTS', events: res.events }))
+    .then((res) => dispatch({ type: 'ADD_EVENTS', googleEvents: res.googleEvents, parkEvents: res.parkEvents }))
     .catch(() => dispatch(eventsErrored(true)))
   };
 }
