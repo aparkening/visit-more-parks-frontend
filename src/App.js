@@ -33,7 +33,7 @@ class App extends Component {
   render() {
 
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the items</p>;
+      return <p>Sorry! There was an error loading home.</p>;
     }
 
     console.log("Home CSRF")
@@ -65,7 +65,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     // loading: state.loading,
-    csrf: state.csrf.csrf,
+    csrf: state.csrf,
     // loggedIn: state.csrf.loggedIn,
     hasErrored: state.authErrored,
     isLoading: state.authLoading
