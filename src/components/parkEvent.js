@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
-import Park from './Park';
 
 const ParkEvent = props => {
   const { parkEvent } = props;
@@ -24,7 +23,7 @@ const ParkEvent = props => {
           <Card.Header as="h4">{parkEvent.summary}</Card.Header>
           <Card.Body>
             <Card.Text>{parkEvent.location}</Card.Text>
-            <Card.Text>{parkEvent.start.dateTime - event.end.dateTime}</Card.Text>
+            <Card.Text>{parkEvent.start.dateTime - parkEvent.end.dateTime}</Card.Text>
             <Card.Text>{parkEvent.description}</Card.Text>
             {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button>
             <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
