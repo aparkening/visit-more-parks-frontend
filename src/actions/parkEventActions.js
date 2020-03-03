@@ -132,34 +132,3 @@ export const updateParkEvent = (token, id) => {
     .catch(() => dispatch(eventsErrored(true)))
   };
 }
-    // .then(response => response.json())
-    // .then(responseJSON => dispatch({ type: 'UPDATE_EVENT', id }));
-
-
-    // const res = await fetch('http://localhost:3000/api/v1/events', {
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //     'X-CSRF-TOKEN': this.state.csrf
-    //   },
-    //   credentials: 'include'
-    // })
-    // const data = await res.json()
-    // dispatch({ type: 'ADD_EVENTS', events: data });
-
-    // Add try/catch once working
-    // try {
-    //   const res = await fetch('http://localhost:3000/api/v1/events', {
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json',
-    //       'X-CSRF-TOKEN': this.state.csrf
-    //     },
-    //     credentials: 'include'
-    //   })
-    //   if (!res.ok){ throw res; }
-    //   const data = await res.json()
-    //   dispatch({ type: 'ADD_EVENTS', events: data });
-    // } catch (err) {
-    //   console.log("Error happened!")
-    // }
