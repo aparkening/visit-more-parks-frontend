@@ -23,6 +23,7 @@ class App extends Component {
     this.props.setupAuth()
   }
 
+  // Display components based on login status
   displayHome = () => {
     return (
       this.props.csrf ? <Dashboard token={this.props.csrf} loading={this.props.isLoading} /> : <Welcome />
@@ -35,9 +36,11 @@ class App extends Component {
       return <p>Sorry! There was an error loading the items</p>;
     }
 
-    // if (this.props.isLoading) {
-    //     return <p>Loading…</p>;
-    // }
+    console.log("Home CSRF")
+    console.log(this.props.csrf)
+
+    // console.log("Logged In?")
+    // console.log(this.props.loggedIn)
 
     return (
       <Router>
@@ -48,8 +51,8 @@ class App extends Component {
         <main role="main" className="container">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
-            <Route path='/parks' component={ParksContainer} />
-            <Route path='/events' component={EventsContainer} />
+            <Route path='/parks' component={ParksContainer} token={this.props.csrf} />
+            <Route path='/events' component={EventsContainer} token={this.props.csrf} />
             {/* <Route path='/events/new'><EventInput /></Route> */}
           </Switch>
         </main>
@@ -62,7 +65,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     // loading: state.loading,
-    csrf: state.csrf,
+    csrf: state.csrf.csrf,
+    // loggedIn: state.csrf.loggedIn,
     hasErrored: state.authErrored,
     isLoading: state.authLoading
   }
