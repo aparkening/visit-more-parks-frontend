@@ -23,12 +23,19 @@ const Event = props => {
     );
   });
 
+// Add event input form to Event
+//   <EventInput 
+//   addEvent={this.props.addEvent} 
+//   token={this.props.token}
+// />
+
+
   if (props.loading) {
     return (<div className="loader"></div>)
   } else {
     return (
         <Card className="event mb-4" bg="white" border="coffee">
-          <Card.Header as="h4"><Card.Link href={event.htmlLink}>{event.summary}</Card.Link></Card.Header>
+          <Card.Header as="h4">{event.summary}</Card.Header>
           <Card.Body>
             <Card.Text>{event.location}</Card.Text>
             <Card.Text>{event.start.date ? event.start.date : event.start.dateTime} - {event.end.date ? event.end.date : event.end.dateTime} {event.end.timeZone? (event.end.timeZone) : ''}</Card.Text>
