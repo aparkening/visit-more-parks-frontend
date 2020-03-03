@@ -5,6 +5,9 @@ const Events = props => {
   console.log("Events")
   console.log(props)
 
+// debugger
+// Fix props/events
+
   const events = props.events.map(obj => <Event key={obj.id} event={obj} deleteEvent={props.deleteEvent} updateEvent={props.updateEvent} loading={props.loading} />)
 
   if (props.loading) {
