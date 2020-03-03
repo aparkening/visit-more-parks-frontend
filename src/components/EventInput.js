@@ -16,7 +16,7 @@ import DateTimePicker from 'react-datetime-picker';
 class EventInput extends Component {
   state = {
     // id: uuid(),
-    title: "Visit This Park", 
+    summary: "Visit This Park", 
     location: "123 Main Street", 
     description: "Explore park!\n\n----\n\nAbout the Park:\n#Park Description",
     // start_time: "2020-02-28T17:00:00", 
