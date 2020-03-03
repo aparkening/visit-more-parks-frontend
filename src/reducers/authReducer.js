@@ -25,34 +25,18 @@ export const authLoading = (state = false, action) => {
 export const csrf = (state = false, action) => {
 
   switch(action.type) {
-    // case 'GETTING_AUTHORIZATION':
-    //   return {
-    //     ...state,
-    //     csrf: state.csrf,
-    //     loading: true
-    //   }
     case 'ADD_AUTHORIZATION':
-      console.log(action);
       return action.csrf;
+      // console.log("Adding Authorization")
+      // console.log(action);
+      // return ({csrf: action.csrf, loggedIn: true});
 
-    // case 'REMOVING_AUTHORIZATION':
-    //   return {
-    //     ...state,
-    //     csrf: state.csrf,
-    //     loading: true
-    //   }      
     case 'LOG_OUT':
-      // return {
-      //   ...state,
-      //   loading: false,
-      //   activeUser: false
-      // }      
-      console.log("Logging out")
-      console.log(action);
       return action.csrf;
+      // console.log("Logging out")
+      // console.log(action);    
+      // return ({csrf: action.csrf, loggedIn: false});
     default:
       return state;
   }
 }
- 
-// export default authReducer;
