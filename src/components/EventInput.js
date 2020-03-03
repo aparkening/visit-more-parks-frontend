@@ -68,8 +68,8 @@ class EventInput extends Component {
           <Col sm={10}>
             <Form.Control 
               type="text" 
-              name="title"
-              value={this.state.title}
+              name="summary"
+              value={this.state.summary}
               onChange={this.handleOnChange} 
             />
           </Col>
