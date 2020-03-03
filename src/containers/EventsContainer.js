@@ -10,7 +10,7 @@ import { fetchParkEvents, addParkEvent, deleteParkEvent, updateParkEvent } from 
 
 class EventsContainer extends Component {
   componentDidMount() {
-    // this.props.fetchEvents(this.props.token)
+    if (this.props.token) {this.props.fetchEvents(this.props.token)}
   }
 
   render() {
@@ -18,6 +18,14 @@ class EventsContainer extends Component {
     // console.log(this.props.loading)
 
     // debugger
+
+    if (this.props.hasErrored) {
+      return <p>Sorry! There was an error loading events</p>;
+    }
+
+    if (!this.props.token) {
+      return <p>Please log in.</p>;
+    }
 
     return ( 
       <div className="EventsContainer container">

@@ -6,12 +6,20 @@ import { fetchParks } from '../actions/parkActions'
 
 class ParksContainer extends Component {
   componentDidMount() {
-    this.props.fetchParks(this.props.token)
+    if (this.props.token) {this.props.fetchParks(this.props.token)}
   }
 
   render() {
     // Investigate when loading occurs
     // console.log(this.props.loading)
+
+    if (this.props.hasErrored) {
+      return <p>Sorry! There was an error loading parks</p>;
+    }
+
+    if (!this.props.token) {
+      return <p>Please log in.</p>;
+    }
 
     return ( 
       <div className="ParksContainer container">
