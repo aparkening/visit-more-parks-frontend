@@ -2,20 +2,21 @@ import React from 'react';
 import Event from './Event';
 
 const Events = props => {
+  const { events } = props;
+  
   console.log("Events")
   console.log(props)
 
 // debugger
-// Fix props/events
 
-  const events = props.events.map(obj => <Event key={obj.id} event={obj} deleteEvent={props.deleteEvent} updateEvent={props.updateEvent} loading={props.loading} />)
+  const mapEvents = events.map(obj => <Event key={obj.id} event={obj} addEvent={props.addEvent} loading={props.loading} token={props.token} />)
 
   if (props.loading) {
     return (<div className="loader"></div>)
   } else {
     return (
       <div className="events">
-        {events}
+        {mapEvents}
       </div>
     )
   }
