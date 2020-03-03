@@ -48,7 +48,7 @@ export const fetchEvents = (token) => {
     // .then(responseJSON => dispatch({ type: 'ADD_EVENTS', events: responseJSON.events }));
 
 
-export const addEvent = (obj, token) => {
+export const addEvent = (token, obj) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
