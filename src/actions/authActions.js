@@ -33,10 +33,10 @@ export const setupAuth = () => {
     fetch('http://localhost:3000/auth-check',{credentials: 'include'})
       // .then(response => response.json())
       // .then(responseJSON => dispatch({ type: 'ADD_AUTHORIZATION', csrf: responseJSON.csrf_auth_token }));
-      .then((response) => {
-        if (!response.ok) { throw Error(response.statusText); }
-        dispatch(authLoading(false));
-        return response;
+    .then((response) => {
+      if (!response.ok) { throw Error(response.statusText); }
+      dispatch(authLoading(false));
+      return response;
     })
     .then((response) => response.json())
     // .then((res) => dispatch({ type: 'ADD_AUTHORIZATION', csrf: res.csrf_auth_token }))
@@ -60,13 +60,17 @@ export const removeAuth = (token) => {
       headers,
       credentials: 'include'
     })   
-    // .then(response => response.json())
-    // .then(responseJSON => dispatch({ type: 'LOG_OUT', csrf: false}));
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      dispatch(authLoading(false));
+      return response;
+    })
     .then((response) => response.json())
     // .then((res) => dispatch({ type: 'LOG_OUT', csrf: false }))
     .then(res => dispatch(authLogout(false)))
+    // .then(res => dispatch(setupAuth()))
     .catch(() => dispatch(authErrored(true)));
   };
 }
-
-// export {setupAuth, removeAuth}
