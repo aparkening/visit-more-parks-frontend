@@ -16,7 +16,7 @@ const Park = props => {
         <Card.Header as="h4"><Card.Link href={park.url}>{park.fullName}</Card.Link></Card.Header>
         <Card.Body>
           <Card.Text>{park.description}</Card.Text>
-          {props.favoritePark ? <Button variant="copper" size="sm" onClick={() => props.favoritePark(park.id)}>Favorite!</Button> : ''}
+          {/* {props.favoritePark ? <Button variant="copper" size="sm" onClick={() => props.favoritePark(park.id)}>Favorite!</Button> : ''} */}
         </Card.Body>
       </Card>
     )
