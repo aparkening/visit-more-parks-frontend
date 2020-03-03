@@ -28,9 +28,8 @@ class EventInput extends Component {
 
   // Update state on input change
   handleOnChange = event => {
-    console.log("Event Changed...")
-    console.log(event)
-
+    // console.log("Event Changed...")
+    // console.log(event)
     this.setState({
       [event.target.name]: event.target.value
     })
