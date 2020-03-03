@@ -58,8 +58,10 @@ class EventInput extends Component {
   */
 
   render() {
-    // console.log("EventInput props:")
-    // console.log(this.props)
+    console.log("EventInput props:")
+    console.log(this.props)
+    debugger
+    
     return (
       <Form className="new-event" onSubmit={this.handleOnSubmit}>
 
