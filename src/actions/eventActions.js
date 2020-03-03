@@ -34,7 +34,7 @@ export const fetchEvents = (token) => {
     })
     .then((response) => {
       if (!response.ok) {
-          throw Error(response.statusText);
+        throw Error(response.statusText);
       }
       dispatch(eventsLoading(false));
       return response;
