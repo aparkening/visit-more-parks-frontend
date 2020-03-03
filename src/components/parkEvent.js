@@ -22,8 +22,9 @@ const ParkEvent = props => {
         <Card className="event mb-4" bg="white" border="coffee">
           <Card.Header as="h4">{parkEvent.summary}</Card.Header>
           <Card.Body>
-            <Card.Text>{parkEvent.location}</Card.Text>
-            <Card.Text>{parkEvent.start.dateTime - parkEvent.end.dateTime}</Card.Text>
+            <Card.Text>
+              {parkEvent.location} <br />
+              {parkEvent.start_time} to {parkEvent.end_time}</Card.Text>
             <Card.Text>{parkEvent.description}</Card.Text>
             {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button>
             <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
