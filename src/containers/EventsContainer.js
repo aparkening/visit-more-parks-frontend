@@ -26,7 +26,7 @@ class EventsContainer extends Component {
 
     return ( 
       <div className="EventsContainer container">
-        <h1>Events</h1>
+        <h2>Upcoming Events</h2>
 
         {/* <EventInput 
           addEvent={this.props.addEvent} 
@@ -40,6 +40,7 @@ class EventsContainer extends Component {
           loading={this.props.isLoading}
         />
 
+        <h2>Parks Added To Calendar</h2>
         <ParkEvents 
           parkEvents={this.props.parkEvents}
           token={this.props.token}
