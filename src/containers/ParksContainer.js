@@ -9,12 +9,12 @@ import { fetchParks } from '../actions/parkActions'
 class ParksContainer extends Component {
   componentDidMount() {
     // if (this.props.token) {this.props.fetchParks(this.props.token)}
-    this.props.fetchEvents(this.props.token)
+    this.props.fetchParks(this.props.token)
   }
 
   render() {
-    // Investigate when loading occurs
-    // console.log(this.props.loading)
+    console.log("Parks Container")
+    console.log(this.props)
 
     if (this.props.hasErrored) {
       return <Alert variant="danger">There was an error loading parks. Please try again.</Alert>;
