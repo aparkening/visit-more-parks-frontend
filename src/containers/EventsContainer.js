@@ -32,20 +32,20 @@ class EventsContainer extends Component {
       <Container className="EventsContainer">
         <h1>Events</h1>
 
-        <h2>Upcoming Calendar Events</h2>
-        <Events 
-          events={this.props.googleEvents}
-          token={this.props.token}
-          addEvent={this.props.addEvent}
-          loading={this.props.isLoading}
-        />
-
-        <h2>Parks Added To Calendar</h2>
+        <h2>Park Visits You've Added</h2>
         <ParkEvents 
           parkEvents={this.props.parkEvents}
           token={this.props.token}
           deleteEvent={this.props.deleteEvent}
           updateEvent={this.props.updateEvent}
+          loading={this.props.isLoading}
+        />
+
+        <h2>Upcoming Calendar Events</h2>
+        <Events 
+          events={this.props.googleEvents}
+          token={this.props.token}
+          addEvent={this.props.addEvent}
           loading={this.props.isLoading}
         />
       </Container>
