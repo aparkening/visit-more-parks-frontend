@@ -1,22 +1,12 @@
 import React from 'react';
-
 import Moment from 'react-moment';
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 
 const ParkEvent = props => {
   const { parkEvent } = props;
   console.log(props);
-
-// Add event input form to Event
-//   <EventInput 
-//   addEvent={this.props.addEvent} 
-//   token={this.props.token}
-// />
 
   if (props.loading) {
     return (<div className="loader"></div>)
@@ -28,8 +18,8 @@ const ParkEvent = props => {
             <div className="event-heading"><span>Location: </span>{parkEvent.location}</div>
             <div className="event-heading"><span>Date: </span><Moment format="LLL" date={parkEvent.start_time}/> to <Moment format="LLL" date={parkEvent.end_time}/></div>            
             <Card.Text>{parkEvent.description}</Card.Text>
-            {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button>
-            <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
+            {/* <Button size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button>
+            <Button size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
           </Card.Body>
         </Card>
     )
