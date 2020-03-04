@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import EventInput from '../components/EventInput'
 import Events from '../components/Events'
 import ParkEvents from '../components/ParkEvents'
+
+import Container from 'react-bootstrap/Container'
 
 import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/eventActions'
 // import { fetchParkEvents, addParkEvent, deleteParkEvent, updateParkEvent } from '../actions/parkEventActions'
@@ -25,7 +26,7 @@ class EventsContainer extends Component {
     }
 
     return ( 
-      <div className="EventsContainer container">
+      <Container className="EventsContainer">
         <h2>Upcoming Events</h2>
 
         {/* <EventInput 
@@ -48,8 +49,7 @@ class EventsContainer extends Component {
           updateEvent={this.props.updateEvent}
           loading={this.props.isLoading}
         />
-
-      </div>
+      </Container>
     );
   }
 }
