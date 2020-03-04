@@ -14,14 +14,14 @@ import DateTimePicker from 'react-datetime-picker';
 
 class EventInput extends Component {
   state = {
-    summary: "Visit This Park", 
-    location: "123 Main Street", 
-    description: "Explore park!\n\n----\n\nAbout the Park:\n#Park Description",
+    summary: `Visit #{this.props.park.fullName}`, 
+    location: this.props.park.address, 
+    description: `Explore #{this.props.park.fullName}!\n\n----\n\nAbout the Park:\n#{this.props.park.description}`,
     // start_time: "2020-02-28T17:00:00", 
     start_time: new Date(),
     end_time: new Date(), 
-    timezone: "America/Los_Angeles", 
-    park_id: 1
+    timezone: '', 
+    park_id: this.props.park.id
   }
 
   // Update state on input change
@@ -58,9 +58,9 @@ class EventInput extends Component {
   */
 
   render() {
-    console.log("EventInput props:")
-    console.log(this.props)
-    debugger
+    // console.log("EventInput props:")
+    // console.log(this.props)
+    // debugger
     
     return (
       <Form className="new-event" onSubmit={this.handleOnSubmit}>
