@@ -10,7 +10,6 @@ import Container from 'react-bootstrap/Container'
 
 import { setupAuth, removeAuth } from './actions/authActions';
 import Welcome from './components/Welcome';
-// import Dashboard from './components/Dashboard';
 import ParksContainer from './containers/ParksContainer';
 import EventsContainer from './containers/EventsContainer';
 import Navigation from './components/Navigation';
