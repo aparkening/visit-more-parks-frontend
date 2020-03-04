@@ -19,8 +19,11 @@ class EventInput extends Component {
     description: this.props.park.description,
     // `Explore #{this.props.park.fullName}!\n\n----\n\nAbout the Park:\n#{this.props.park.description}`
     // start_time: "2020-02-28T17:00:00", 
-    start_time: new Date(),
-    end_time: new Date(), 
+    // start_time: new Date(),
+    // end_time: new Date(), 
+
+    start_time: this.props.date,
+    end_time: this.props.date,
     timezone: '', 
     park_id: this.props.park.id
   }
@@ -198,7 +201,7 @@ class EventInput extends Component {
         </Form.Group> */}
 
         <Form.Group>
-            <Button variant="primary" type="submit">Create Event</Button>
+            <Button variant="copper" size="sm" type="submit">Create Event</Button>
         </Form.Group>
       </Form>
     );
