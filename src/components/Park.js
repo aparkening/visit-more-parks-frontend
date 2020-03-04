@@ -12,8 +12,8 @@ const Park = props => {
     return (
       <Accordion>
         <Card>
-          <Accordion.Toggle as={Button} variant="copper" size="sm" eventKey={park.id}>
-            Add Park as Event
+          <Accordion.Toggle as={Button} variant="primary" size="sm" eventKey={park.id}>
+            Add Park to Calendar
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={park.id}>
             <Card.Body>
