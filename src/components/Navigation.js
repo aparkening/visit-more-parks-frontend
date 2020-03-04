@@ -8,9 +8,9 @@ class Navigation extends Component {
         <Navbar.Brand href="/">Visit More Parks</Navbar.Brand>
         {this.props.token ? 
           <Nav>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link href="/events" activeclassname="active">Events</Nav.Link>  
-            </Nav.Item>
+            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link href="/parks" activeclassname="active">Parks</Nav.Link>
             </Nav.Item>
