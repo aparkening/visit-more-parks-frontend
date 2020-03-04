@@ -46,10 +46,10 @@ const Event = props => {
           <Card.Header as="h5">{event.summary}</Card.Header>
           <Card.Body>
             <div className="event-heading">
-              <span>Location:</span>{event.location}
+              <span>Location: </span>{event.location}
             </div>
             <div className="event-heading">
-              <span>Date:</span> 
+              <span>Date: </span> 
               <Moment format="LLL" date={event.start.date ? event.start.date : event.start.dateTime} /> to <Moment format="LLL" date={event.end.date ? event.end.date : event.end.dateTime} /> {event.end.timeZone? (event.end.timeZone) : ''}
             </div>
             <Card.Text>{event.description}</Card.Text>
