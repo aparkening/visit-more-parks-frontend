@@ -5,13 +5,12 @@ import {
   Route, 
   Switch
 } from 'react-router-dom';
-// import { authErrored, authLoading, authremoveAuth } from './actions/authActions'
 
+import Container from 'react-bootstrap/Container'
 
 import { setupAuth, removeAuth } from './actions/authActions';
-
 import Welcome from './components/Welcome';
-import Dashboard from './components/Dashboard';
+// import Dashboard from './components/Dashboard';
 import ParksContainer from './containers/ParksContainer';
 import EventsContainer from './containers/EventsContainer';
 import Navigation from './components/Navigation';
@@ -20,7 +19,7 @@ class App extends Component {
 
   // Get server authorization when component mounted
   componentDidMount() {
-    this.props.setupAuth()
+    if (!this.props.csrf) {this.props.setupAuth()}
   }
 
   // Display components based on login status
@@ -41,13 +40,17 @@ class App extends Component {
     return (
       <Router>
         <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
-        <main role="main" className="container">          
+        <Container role="main" className="main-page">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
-            <Route path='/events' component={EventsContainer} token={this.props.csrf} />
-            <Route path='/parks' component={ParksContainer} token={this.props.csrf} />
+            {/* <Route path='/events'>
+              <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
+            </Route>  */}
+            <Route path='/parks'>
+              <ParksContainer token={this.props.csrf} loading={this.props.isLoading} />
+            </Route>
           </Switch>
-        </main>
+        </Container>
       </Router>
     );
   }
