@@ -12,14 +12,12 @@ const Park = props => {
     return (
       <Accordion>
         <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Button} variant="copper" size="sm" eventKey={park.id}>
-              Add Park as Event
-            </Accordion.Toggle>
-          </Card.Header>
+          <Accordion.Toggle as={Button} variant="copper" size="sm" eventKey={park.id}>
+            Add Park as Event
+          </Accordion.Toggle>
           <Accordion.Collapse eventKey={park.id}>
             <Card.Body>
-              <EventInput addEvent={props.addEvent} park={park} token={props.token} />
+              <EventInput addEvent={props.addEvent} park={park} token={props.token} date={props.date} />
             </Card.Body>
           </Accordion.Collapse>
         </Card>
