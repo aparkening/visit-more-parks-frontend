@@ -39,6 +39,7 @@ const Park = props => {
           <Card.Body className="mb-4">
             <Card.Text>{park.description}</Card.Text>
             <Card.Link href={park.url}>{park.url}</Card.Link>
+            <div className="event-heading"><img src="icon-location.svg" alt="Location icon" caption="Location by Neha Tyagi from the Noun Project" /> {park.address}</div>
             {props.token && props.addEvent ? accordianForm : ''}
           </Card.Body>
         </Accordion.Collapse>
