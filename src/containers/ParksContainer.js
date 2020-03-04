@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Parks from '../components/Parks'
 
+import Alert from 'react-bootstrap/Alert'
+
 import { fetchParks } from '../actions/parkActions'
 
 class ParksContainer extends Component {
   componentDidMount() {
-    if (this.props.token) {this.props.fetchParks(this.props.token)}
+    // if (this.props.token) {this.props.fetchParks(this.props.token)}
+    this.props.fetchEvents(this.props.token)
   }
 
   render() {
@@ -14,11 +17,11 @@ class ParksContainer extends Component {
     // console.log(this.props.loading)
 
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading parks</p>;
+      return <Alert variant="danger">There was an error loading parks. Please try again.</Alert>;
     }
 
     if (!this.props.token) {
-      return <p>Please log in.</p>;
+      return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     }
 
     return ( 

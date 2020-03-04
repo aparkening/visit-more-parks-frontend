@@ -5,35 +5,34 @@ import Events from '../components/Events'
 import ParkEvents from '../components/ParkEvents'
 
 import Container from 'react-bootstrap/Container'
+import Alert from 'react-bootstrap/Alert'
+
 
 import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/eventActions'
 // import { fetchParkEvents, addParkEvent, deleteParkEvent, updateParkEvent } from '../actions/parkEventActions'
 
 class EventsContainer extends Component {
   componentDidMount() {
-    if (this.props.token) {this.props.fetchEvents(this.props.token)}
+    this.props.fetchEvents(this.props.token)
   }
 
   render() {
+    console.log("Events Container")
     console.log(this.props)
 
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading events</p>;
+      return <Alert variant="danger">There was an error loading events. Please try again.</Alert>;
     }
 
     if (!this.props.token) {
-      return <p>Please log in.</p>;
+      return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     }
 
     return ( 
       <Container className="EventsContainer">
-        <h2>Upcoming Events</h2>
+        <h1>Events</h1>
 
-        {/* <EventInput 
-          addEvent={this.props.addEvent} 
-          token={this.props.token}
-        /> */}
-
+        <h2>Upcoming Calendar Events</h2>
         <Events 
           events={this.props.googleEvents}
           token={this.props.token}
@@ -68,10 +67,6 @@ const mapDispatchToProps = dispatch => ({
   addEvent: (token, obj) => dispatch(addEvent(token, obj)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
   updateEvent: (token, id) => dispatch(updateEvent(token, id)),
-  // fetchParkEvents: (token) => dispatch(fetchParkEvents(token)),
-  // addParkEvent: (token, obj) => dispatch(addParkEvent(token, obj)),
-  // deleteParkEvent: (token, id) => dispatch(deleteParkEvent(token, id)),
-  // updateParkEvent: (token, id) => dispatch(updateParkEvent(token, id))  
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer)
