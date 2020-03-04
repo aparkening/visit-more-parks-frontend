@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Moment from 'react-moment';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -40,19 +43,18 @@ const Event = props => {
   } else {
     return (
         <Card className="event mb-4" bg="white" border="coffee">
-          <Card.Header as="h4">{event.summary}</Card.Header>
+          <Card.Header as="h5">{event.summary}</Card.Header>
           <Card.Body>
-            <Card.Text>
-              {event.location} <br />
-              {event.start.date ? event.start.date : event.start.dateTime} to {event.end.date ? event.end.date : event.end.dateTime} {event.end.timeZone? (event.end.timeZone) : ''}</Card.Text>
+            <div className="event-heading">
+              <span>Location:</span>{event.location}
+            </div>
+            <div className="event-heading">
+              <span>Date:</span> 
+              <Moment format="LLL" date={event.start.date ? event.start.date : event.start.dateTime} /> to <Moment format="LLL" date={event.end.date ? event.end.date : event.end.dateTime} /> {event.end.timeZone? (event.end.timeZone) : ''}
+            </div>
             <Card.Text>{event.description}</Card.Text>
-
-            {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
-    
-            <h4 className="mt-4">Nearby Parks</h4>
-            <Row>
-              {parks}
-            </Row>
+            <h5 className="mt-4">Nearby Parks</h5>
+            <Row>{parks}</Row>
           </Card.Body>
         </Card>
     )
