@@ -201,7 +201,7 @@ class EventInput extends Component {
         </Form.Group> */}
 
         <Form.Group>
-            <Button variant="copper" size="sm" type="submit">Create Event</Button>
+            <Button size="sm" type="submit">Create Event</Button>
         </Form.Group>
       </Form>
     );
