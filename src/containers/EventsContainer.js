@@ -24,7 +24,7 @@ class EventsContainer extends Component {
       return <Alert variant="danger">There was an error loading events. Please try again.</Alert>;
     }
 
-    if (!this.props.token) {
+    if (this.props.isLoading && !this.props.token) {
       return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     }
 
