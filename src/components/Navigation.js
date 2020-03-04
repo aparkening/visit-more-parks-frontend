@@ -5,7 +5,7 @@ class Navigation extends Component {
   render() {
     return (
       <Navbar className="justify-content-center" bg="secondary" variant="dark" expand role="navigation">
-        <Navbar.Brand href="/">Visit More Parks</Navbar.Brand>
+        <Navbar.Brand href="/"><img src="logo-park.svg" /> Visit More Parks</Navbar.Brand>
         {this.props.token ? 
           <Nav>
             {/* <Nav.Item>
