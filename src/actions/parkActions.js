@@ -26,7 +26,7 @@ export const fetchParks = (token) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
+  // console.log(headers)
   return (dispatch) => {
     dispatch(parksLoading(true));
     // dispatch({ type: 'LOADING_PARKS' });
@@ -54,7 +54,7 @@ export const favoritePark = (token, id) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
+  // console.log(headers)
   return (dispatch) => {
     // dispatch({ type: 'FAVORITING_PARK' });
     dispatch(parksLoading(true));
@@ -82,7 +82,7 @@ export const unFavoritePark = (token, id) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
+  // console.log(headers)
   return (dispatch) => {
     // dispatch({ type: 'UN_FAVORITING_PARK' });
     dispatch(parksLoading(true));

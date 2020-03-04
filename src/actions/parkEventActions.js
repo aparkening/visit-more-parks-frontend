@@ -51,8 +51,8 @@ export const addParkEvent = (token, obj) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log("Adding parkEvent to Rails server...")
-  console.log(obj)
+  // console.log("Adding parkEvent to Rails server...")
+  // console.log(obj)
 
   // console.log(token)
   return (dispatch) => {

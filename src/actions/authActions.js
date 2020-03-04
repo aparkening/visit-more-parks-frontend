@@ -51,7 +51,7 @@ export const removeAuth = (token) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log(headers)
+  // console.log(headers)
   return (dispatch) => {
     dispatch(authLoading(true));
     // dispatch({ type: 'REMOVING_AUTHORIZATION' });

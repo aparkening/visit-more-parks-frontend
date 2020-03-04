@@ -54,10 +54,8 @@ export const addEvent = (token, obj) => {
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  console.log("Adding event to Rails server...")
-  console.log(obj)
-
-  // console.log(token)
+  // console.log("Adding event to Rails server...")
+  // console.log(obj)
   return (dispatch) => {
     dispatch(eventsLoading(true));
     fetch(`http://localhost:3000/api/v1/events`,{
