@@ -1,6 +1,8 @@
 import React from 'react';
 import Park from './Park';
 
+import Accordion from 'react-bootstrap/Accordion';
+
 const Parks = props => {
   // console.log("Parks")
   // console.log(props)
@@ -11,7 +13,9 @@ const Parks = props => {
 
   return (
     <div className="parks">
-      {parks}
+      <Accordion>
+        {parks}
+      </Accordion>
     </div>
   )
 };
