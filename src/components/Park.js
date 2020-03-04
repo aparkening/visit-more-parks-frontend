@@ -8,23 +8,20 @@ import Accordion from 'react-bootstrap/Accordion';
 const Park = props => {
   const { park } = props;
 
-  const accordianForm = () => {
-    return (
-      <Accordion>
-        <Card>
-          <Accordion.Toggle as={Button} variant="primary" size="sm" eventKey={park.id}>
-            Add Park to Calendar
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey={park.id}>
-            <Card.Body>
-              <EventInput addEvent={props.addEvent} park={park} token={props.token} date={props.date} />
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
-    );
-  };
-
+  const accordianForm = 
+    <Accordion>
+      <Card>
+        <Accordion.Toggle as={Button} variant="primary" size="sm" eventKey={park.id + 1}>
+          Add Park to Calendar
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey={park.id + 1}>
+          <Card.Body>
+            <EventInput addEvent={props.addEvent} park={park} token={props.token} date={props.date} />
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+    </Accordion>
+    
   if (props.loading) {
     return (<div className="loader"></div>)
   } else {
@@ -37,9 +34,10 @@ const Park = props => {
         </Card.Header>
         <Accordion.Collapse eventKey={park.id}>
           <Card.Body className="mb-4">
-            <Card.Text>{park.description}</Card.Text>
+          <Card.Text>{park.description}</Card.Text>
             <div className="event-heading"><img src="icon-location.svg" alt="Location icon" caption="Location by Neha Tyagi from the Noun Project" /> {park.address}</div>
-            <Card.Link href={park.url}>{park.url}</Card.Link>
+            <Card.Link href={park.url}><img src="icon-url.svg" alt="URL icon" caption="url by Agni from the Noun Project" /> {park.url}</Card.Link>
+
             {props.token && props.addEvent ? accordianForm : ''}
           </Card.Body>
         </Accordion.Collapse>
