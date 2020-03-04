@@ -26,37 +26,28 @@ class App extends Component {
   // Display components based on login status
   displayHome = () => {
     return (
-      this.props.csrf ? <Dashboard token={this.props.csrf} loading={this.props.isLoading} /> : <Welcome />
+      this.props.csrf ? <EventsContainer token={this.props.csrf} loading={this.props.isLoading} /> : <Welcome />
     );
   };
 
   render() {
-
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading home.</p>;
     }
 
-    console.log("Home CSRF")
-    console.log(this.props.csrf)
-
-    // console.log("Logged In?")
-    // console.log(this.props.loggedIn)
+    // console.log("Home CSRF")
+    // console.log(this.props.csrf)
 
     return (
       <Router>
         <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
-        
-        {/* {console.log(this.props.isLoading)} */}
-
         <main role="main" className="container">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
-            <Route path='/parks' component={ParksContainer} token={this.props.csrf} />
             <Route path='/events' component={EventsContainer} token={this.props.csrf} />
-            {/* <Route path='/events/new'><EventInput /></Route> */}
+            <Route path='/parks' component={ParksContainer} token={this.props.csrf} />
           </Switch>
         </main>
-
       </Router>
     );
   }
@@ -64,7 +55,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    // loading: state.loading,
     csrf: state.csrf,
     // loggedIn: state.csrf.loggedIn,
     hasErrored: state.authErrored,
