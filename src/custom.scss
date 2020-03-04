@@ -24,6 +24,22 @@ $theme-colors: (
   100% { transform: rotate(360deg); }
 }
 
+//Event
+.event-heading {
+  margin-bottom: .25rem;
+}
+.event-heading:last-child {
+  margin-bottom: 1rem;
+}
+.event-heading span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+// .card-text {
+//   margin-top: 1.5rem;
+// }
+
+
 // Event form
 .new-event {
   border: .2em solid #ced4da;
