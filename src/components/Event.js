@@ -46,7 +46,7 @@ const Event = props => {
               {event.start.date ? event.start.date : event.start.dateTime} to {event.end.date ? event.end.date : event.end.dateTime} {event.end.timeZone? (event.end.timeZone) : ''}</Card.Text>
             <Card.Text>{event.description}</Card.Text>
 
-            {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */} */}
+            {/* <Button variant="copper" size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
     
             <h4 className="mt-4">Nearby Parks</h4>
             <Row>
