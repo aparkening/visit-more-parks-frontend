@@ -13,9 +13,9 @@ const Event = props => {
 
 // debugger
 
-  const addTrip = (id) => {
-    console.log("Park id:", id)
-  };
+  // const addTrip = (id) => {
+  //   console.log("Park id:", id)
+  // };
 
   const parks = event.nearParks ? event.nearParks.map(p => {
     return (
