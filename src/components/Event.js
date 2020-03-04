@@ -18,7 +18,7 @@ const Event = props => {
   const parks = event.nearParks ? event.nearParks.map(p => {
     const start = event.start.date ? event.start.date : event.start.dateTime
     return (
-      <Accordion>
+      <Accordion key={p.id}>
         <Park park={p} token={props.token} addEvent={props.addEvent} date={start} />
       </Accordion>
     );
