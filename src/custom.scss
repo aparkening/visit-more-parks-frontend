@@ -1,12 +1,17 @@
 // Override default variables before the import
+
+$diamond: #BAE5F9 !default;
+$copper: #C56C39 !default;
+$coffee: #6F4930 !default;
+$green: #56903A !default;
+$black-leather: #213A1B !default;
+
+
 $theme-colors: (
   // "primary": #0000ff,
   // "danger": #ff4136
-  "diamond": #BAE5F9,
-  "copper": #C56C39,
-  "coffee": #6F4930,
-  "green": #56903A,
-  "black-leather": #213A1B
+
+  "primary": $copper
 );
 
 
@@ -39,6 +44,10 @@ $theme-colors: (
 //   margin-top: 1.5rem;
 // }
 
+// Park
+.park .card-header {
+  background: $coffee;
+}
 
 // Event form
 .new-event {
