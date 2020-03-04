@@ -13,14 +13,14 @@ class ParksContainer extends Component {
   }
 
   render() {
-    console.log("Parks Container")
-    console.log(this.props)
+    // console.log("Parks Container")
+    // console.log(this.props)
 
     if (this.props.hasErrored) {
       return <Alert variant="danger">There was an error loading parks. Please try again.</Alert>;
     }
 
-    if (this.props.isLoading && !this.props.token) {
+    if (!this.props.token) {
       return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     }
 
