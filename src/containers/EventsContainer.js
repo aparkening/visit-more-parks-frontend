@@ -17,14 +17,14 @@ class EventsContainer extends Component {
   }
 
   render() {
-    console.log("Events Container")
-    console.log(this.props)
+    // console.log("Events Container")
+    // console.log(this.props)
 
     if (this.props.hasErrored) {
       return <Alert variant="danger">There was an error loading events. Please try again.</Alert>;
     }
 
-    if (this.props.isLoading && !this.props.token) {
+    if (!this.props.token) {
       return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     }
 
