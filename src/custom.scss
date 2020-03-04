@@ -20,6 +20,14 @@ body {
   // background-color: $green !important;
 }
 
+// Navigation
+.navbar-brand .logo {
+  height: 50px;
+}
+.logo-path {
+  fill: white;
+} 
+
 // Spinner
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
