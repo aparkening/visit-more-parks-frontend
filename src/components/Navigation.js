@@ -17,9 +17,9 @@ class Navigation extends Component {
         <Navbar.Brand href="/"><img className="logo" src="logo-park.svg" alt="Park logo" caption="Park by Flatart from the Noun Project"/> Visit More Parks</Navbar.Brand>
         {this.props.token ? 
           <Nav>
-            {/* <Nav.Item>
+            <Nav.Item>
               <Nav.Link href="/events" activeclassname="active">Events</Nav.Link>  
-            </Nav.Item> */}
+            </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/parks" activeclassname="active">Parks</Nav.Link>
             </Nav.Item>
