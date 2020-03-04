@@ -7,7 +7,7 @@ const ParkEvents = props => {
   // console.log("ParkEvents")
   // console.log(props)
 
-  const pEvents = props.parkEvents.map(obj => <ParkEvent key={obj.id} parkEvent={obj} deleteParkEvent={props.deleteParkEvent} updateParkEvent={props.updateParkEvent} token={props.token} />)
+  const pEvents = props.parkEvents.map(obj => <ParkEvent key={obj.id} parkEvent={obj} deleteEvent={props.deleteEvent} updateParkEvent={props.updateParkEvent} token={props.token} />)
 
   if (props.loading) {
     return (<div className="loader"></div>)

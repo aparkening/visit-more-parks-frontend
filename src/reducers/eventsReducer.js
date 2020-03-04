@@ -42,7 +42,9 @@ export const events = (state = {
       };
       // parkEvent: action.event]);
     case 'DELETE_EVENT':
-      return {...state, parkEvents: state.parkEvents.filter(e => e.id !== action.id)}
+      return {
+        ...state, 
+        parkEvents: state.parkEvents.filter(e => e.id !== action.id)};
       // return [...state.slice(0, idx), ...state.slice(idx + 1)];
     case 'UPDATE_EVENT':
       idx = state.parkEvents.findIndex(e => e.id === action.id);

@@ -24,8 +24,9 @@ const ParkEvent = props => {
             <div className="event-heading"><img src="icon-location.svg" alt="Location icon" caption="Location by Neha Tyagi from the Noun Project" /> {parkEvent.location}</div>
             <div className="event-heading"><img src="icon-date.svg" alt="Date icon" caption="date by Karan from the Noun Project" /> <Moment format="LLL" date={parkEvent.start_time}/> to <Moment format="LLL" date={parkEvent.end_time}/></div>            
             <Card.Text>{parkEvent.description}</Card.Text>
-            {/* <Button size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button>
-            <Button size="sm" className="mr-2" onClick={() => props.deleteEvent(event.id)}> X </Button> */}
+            {/* <Button size="sm" className="mr-2" onClick={() => props.updateEvent(event.id)}> Edit </Button> */}
+
+            <Button size="sm" className="mr-2" onClick={() => props.deleteEvent(props.token, parkEvent.id)}> X </Button>
           </Card.Body>
         </Accordion.Collapse>
       </Card>

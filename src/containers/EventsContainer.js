@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
   fetchEvents: (token) => dispatch(fetchEvents(token)),
   addEvent: (token, obj) => dispatch(addEvent(token, obj)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
-  updateEvent: (token, id) => dispatch(updateEvent(token, id)),
+  updateEvent: (token, id) => dispatch(updateEvent(token, id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer)

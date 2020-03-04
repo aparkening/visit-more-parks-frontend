@@ -87,7 +87,7 @@ export const deleteEvent = (token, id) => {
   }
   return (dispatch) => {
     dispatch(eventsLoading(true));
-    fetch(`http://localhost:3000/api/v1/events/#{id}`,{
+    fetch(`http://localhost:3000/api/v1/events/${id}`,{
       method: "DELETE",
       headers,
       credentials: 'include'

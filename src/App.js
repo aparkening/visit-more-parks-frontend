@@ -33,9 +33,6 @@ class App extends Component {
       return <p>Sorry! There was an error loading home.</p>;
     }
 
-    // console.log("Home CSRF")
-    // console.log(this.props.csrf)
-
     return (
       <Router>
         <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
@@ -58,7 +55,6 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     csrf: state.csrf,
-    // loggedIn: state.csrf.loggedIn,
     hasErrored: state.authErrored,
     isLoading: state.authLoading
   }
