@@ -8,7 +8,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Park = props => {
   const { park } = props;
 
-  accordianForm = (park) => {
+  const accordianForm = (park) => {
     return (
       <Accordion>
         <Card>
@@ -27,8 +27,6 @@ const Park = props => {
     );
   };
 
-  const addButton = props.token && props.addEvent ? accordianForm(park) : ''
-
   // console.log(props)  
   {/* Add ternary for unfavorite <Button variant="outline-copper" size="sm" onClick={() => this.props.unFavoritePark(park.id)}>Unfavorite</Button> */}
 
@@ -41,7 +39,7 @@ const Park = props => {
         <Card.Body>
           <Card.Text>{park.description}</Card.Text>
           {/* {props.favoritePark ? <Button variant="copper" size="sm" onClick={() => props.favoritePark(park.id)}>Favorite!</Button> : ''} */}
-          {addButton}
+          {props.token && props.addEvent ? accordianForm(park) : ''}
         </Card.Body>
       </Card>
     )
