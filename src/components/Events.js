@@ -9,7 +9,7 @@ const Events = props => {
 
 // debugger
 
-  const mapEvents = events.map(obj => <Event key={obj.id} event={obj} addEvent={props.addEvent} loading={props.loading} token={props.token} />)
+  const mapEvents = events.map(obj => <Event key={obj.id} event={obj} addEvent={props.addEvent} token={props.token} />)
 
   if (props.loading) {
     return (<div className="loader"></div>)
