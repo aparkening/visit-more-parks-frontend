@@ -2,41 +2,23 @@ import React from 'react';
 
 import Moment from 'react-moment';
 
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
 import Park from './Park';
 
 const Event = props => {
   const { event } = props;
-  console.log("One Event");
-  console.log(props);
-
-// debugger
-
-  // const addTrip = (id) => {
-  //   console.log("Park id:", id)
-  // };
-
+  // console.log("One Event");
+  // console.log(props);
   const parks = event.nearParks ? event.nearParks.map(p => {
     const start = event.start.date ? event.start.date : event.start.dateTime
     return (
       <Col sm={6} key={p.id}>
-        {/* <Badge variant="coffee" onClick={addTrip(obj.id)}>Add Park to Trip!</Badge> */}
-
         <Park park={p} token={props.token} addEvent={props.addEvent} date={start} />
       </Col>
     );
   }) : '';
-
-// Add event input form to Event
-//   <EventInput 
-//   addEvent={this.props.addEvent} 
-//   token={this.props.token}
-// />
-
 
   if (props.loading) {
     return (<div className="loader"></div>)
