@@ -29,12 +29,19 @@ const Park = props => {
     return (<div className="loader"></div>)
   } else {
     return (
-      <Card className="park mb-4" bg="white" border="coffee">
-        <Card.Header as="h5"><Card.Link href={park.url}>{park.fullName}</Card.Link></Card.Header>
-        <Card.Body>
-          <Card.Text>{park.description}</Card.Text>
-          {props.token && props.addEvent ? accordianForm : ''}
-        </Card.Body>
+      <Card className="park" bg="white" border="coffee">
+        <Card.Header as="h5">
+          <Accordion.Toggle as={Button} variant="link" eventKey={park.id}>
+            {park.fullName}
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey={park.id}>
+          <Card.Body className="mb-4">
+            <Card.Text>{park.description}</Card.Text>
+            <Card.Link href={park.url}>{park.url}</Card.Link>
+            {props.token && props.addEvent ? accordianForm : ''}
+          </Card.Body>
+        </Accordion.Collapse>
       </Card>
     )
   }
