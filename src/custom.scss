@@ -62,27 +62,39 @@ body {
 }
 
 //Event
+.events,
+.parks {
+  margin-bottom: 2rem;
+}
 .event-heading {
-  margin-bottom: .25rem;
+  margin-bottom: .5rem;
 }
 .event-heading:last-child {
   margin-bottom: 1rem;
 }
-.event-heading span {
-  font-size: 1rem;
-  font-weight: bold;
+.event-heading img,
+.card-link img {
+  height: 20px;
+  vertical-align: top;
 }
-// .card-text {
-//   margin-top: 1.5rem;
+
+// Accordian
+.park.card .card-header .btn,
+.event.card .card-header .btn {
+  text-align: left;
+  padding: 0;
+}
+// .park .card-header,
+// .event .card-header {
+//   text-align: left;
+// }
+// .park .card-header .btn,
+// .event .card-header .btn {
+//   padding: 0;
+//   text-align: left;
 // }
 
-// Park
-// .park .card-header {
-//   // background: $coffee;
-// }
-.park.card .card-header .btn {
-  text-align: left;
-}
+
 
 // Event form
 .new-event {
