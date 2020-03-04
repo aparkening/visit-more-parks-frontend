@@ -22,8 +22,8 @@ class EventInput extends Component {
     // start_time: new Date(),
     // end_time: new Date(), 
 
-    start_time: this.props.date,
-    end_time: this.props.date,
+    start_time: new Date(this.props.date),
+    end_time: new Date(this.props.date),
     timezone: '', 
     park_id: this.props.park.id
   }
