@@ -14,9 +14,10 @@ import DateTimePicker from 'react-datetime-picker';
 
 class EventInput extends Component {
   state = {
-    summary: `Visit #{this.props.park.fullName}`, 
+    summary: this.props.park.fullName, 
     location: this.props.park.address, 
-    description: `Explore #{this.props.park.fullName}!\n\n----\n\nAbout the Park:\n#{this.props.park.description}`,
+    description: this.props.park.description,
+    // `Explore #{this.props.park.fullName}!\n\n----\n\nAbout the Park:\n#{this.props.park.description}`
     // start_time: "2020-02-28T17:00:00", 
     start_time: new Date(),
     end_time: new Date(), 
@@ -65,6 +66,62 @@ class EventInput extends Component {
     return (
       <Form className="new-event" onSubmit={this.handleOnSubmit}>
 
+
+
+<Form.Group controlId="eventTitle">
+          <Form.Label>Event Title</Form.Label>
+            <Form.Control 
+              type="text" 
+              name="summary"
+              value={this.state.summary}
+              onChange={this.handleOnChange} 
+            />
+        </Form.Group>
+
+        <Form.Group controlId="eventLocation">
+          <Form.Label>Location</Form.Label>
+            <Form.Control plaintext readOnly defaultValue={this.state.location} />
+        </Form.Group>
+
+        <Form.Group controlId="eventDescription">
+          <Form.Label>Description</Form.Label>
+            <Form.Control 
+              name="description"
+              as="textarea" 
+              rows="5"
+              value={this.state.description}
+              onChange={(event) => this.handleOnChange(event)} 
+            />
+        </Form.Group>
+
+        <Form.Group controlId="eventStart">
+          <Form.Label>Start Time</Form.Label>
+            <DateTimePicker
+              className="form-control"
+              disableClock={true}
+              clearIcon={null}
+              calendarIcon={null}
+              value={this.state.start_time}
+              name="start_time"
+              onChange={time => this.handleOnChange({target: {name: 'start_time', value: time}})}           
+            />
+        </Form.Group>
+
+        <Form.Group controlId="eventEnd">
+          <Form.Label>End Time</Form.Label>
+            <DateTimePicker
+              className="form-control"
+              disableClock={true}
+              clearIcon={null}
+              calendarIcon={null}
+              value={this.state.end_time}
+              name="end_time"
+              onChange={time => this.handleOnChange({target: {name: 'end_time', value: time}})}           
+            />
+        </Form.Group>
+
+
+{/* 
         <Form.Group as={Row} controlId="eventTitle">
           <Form.Label column sm={2}>Event Title</Form.Label>
           <Col sm={10}>
@@ -125,7 +182,7 @@ class EventInput extends Component {
               onChange={time => this.handleOnChange({target: {name: 'end_time', value: time}})}           
             />
           </Col>
-        </Form.Group>
+        </Form.Group> */}
 
         {/* <Form.Group controlId="eventTimezone">
           <Form.Label>Timezone</Form.Label>
@@ -140,10 +197,8 @@ class EventInput extends Component {
           />
         </Form.Group> */}
 
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
+        <Form.Group>
             <Button variant="primary" type="submit">Create Event</Button>
-          </Col>
         </Form.Group>
       </Form>
     );
