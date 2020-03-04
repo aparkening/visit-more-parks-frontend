@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px"><title>09</title><path d="M18,95.75H82a12,12,0,0,0,12-12v-58a12,12,0,0,0-12-12H74V8.25a4,4,0,0,0-8,0v5.5H34V8.25a4,4,0,1,0-8,0v5.5H18a12,12,0,0,0-12,12v58A12,12,0,0,0,18,95.75Zm64-8H18a4,4,0,0,1-4-4v-33H86v33A4,4,0,0,1,82,87.75Zm-64-66h8v4.5a4,4,0,1,0,8,0v-4.5H66v4.5a4,4,0,0,0,8,0v-4.5h8a4,4,0,0,1,4,4v17H14v-17A4,4,0,0,1,18,21.75Z"/><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Karan</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="92px" viewBox="0 0 88 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-date</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-date" fill-rule="nonzero" fill="#000000">
+            <path d="M12,91.75 L76,91.75 C82.627417,91.75 88,86.377417 88,79.75 L88,21.75 C88,15.122583 82.627417,9.75 76,9.75 L68,9.75 L68,4.25 C68,2.040861 66.209139,0.25 64,0.25 C61.790861,0.25 60,2.040861 60,4.25 L60,9.75 L28,9.75 L28,4.25 C28,2.040861 26.209139,0.25 24,0.25 C21.790861,0.25 20,2.040861 20,4.25 L20,9.75 L12,9.75 C5.372583,9.75 1.77635684e-15,15.122583 0,21.75 L0,79.75 C1.77635684e-15,86.377417 5.372583,91.75 12,91.75 Z M76,83.75 L12,83.75 C9.790861,83.75 8,81.959139 8,79.75 L8,46.75 L80,46.75 L80,79.75 C80,81.959139 78.209139,83.75 76,83.75 Z M12,17.75 L20,17.75 L20,22.25 C20,24.459139 21.790861,26.25 24,26.25 C26.209139,26.25 28,24.459139 28,22.25 L28,17.75 L60,17.75 L60,22.25 C60,24.459139 61.790861,26.25 64,26.25 C66.209139,26.25 68,24.459139 68,22.25 L68,17.75 L76,17.75 C78.209139,17.75 80,19.540861 80,21.75 L80,38.75 L8,38.75 L8,21.75 C8,19.540861 9.790861,17.75 12,17.75 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
