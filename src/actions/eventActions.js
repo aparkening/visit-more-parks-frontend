@@ -86,7 +86,7 @@ export const deleteEvent = (token, id) => {
     'X-CSRF-TOKEN': token
   }
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    // dispatch(eventsLoading(true));
     fetch(`http://localhost:3000/api/v1/events/${id}`,{
       method: "DELETE",
       headers,
@@ -96,7 +96,7 @@ export const deleteEvent = (token, id) => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      // dispatch(eventsLoading(false));
       return response;
     })
     .then((response) => response.json())
