@@ -1,9 +1,33 @@
 import React from 'react';
+import EventInput from './EventInput'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
 
 const Park = props => {
   const { park } = props;
+
+  accordianForm = (park) => {
+    return (
+      <Accordion>
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle as={Button} variant="copper" size="sm" eventKey={park.id}>
+              Add Park as Event
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey={park.id}>
+            <Card.Body>
+              <EventInput addEvent={props.addEvent} park={park} token={props.token} />
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+    );
+  };
+
+  const addButton = props.token && props.addEvent ? accordianForm(park) : ''
 
   // console.log(props)  
   {/* Add ternary for unfavorite <Button variant="outline-copper" size="sm" onClick={() => this.props.unFavoritePark(park.id)}>Unfavorite</Button> */}
@@ -17,6 +41,7 @@ const Park = props => {
         <Card.Body>
           <Card.Text>{park.description}</Card.Text>
           {/* {props.favoritePark ? <Button variant="copper" size="sm" onClick={() => props.favoritePark(park.id)}>Favorite!</Button> : ''} */}
+          {addButton}
         </Card.Body>
       </Card>
     )
