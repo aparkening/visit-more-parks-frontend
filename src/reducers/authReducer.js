@@ -1,8 +1,8 @@
 export const authErrored = (state = false, action) => {
   switch (action.type) {
     case 'AUTH_ERRORED':
-      console.log("Error Action")
-      console.log(action)
+      // console.log("Error Action")
+      // console.log(action)
       return action.hasErrored;
     default:
       return state;
@@ -12,8 +12,8 @@ export const authErrored = (state = false, action) => {
 export const authLoading = (state = false, action) => {
   switch(action.type) {
     case 'GETTING_AUTHORIZATION':
-      console.log("Getting Action")
-      console.log(action)
+      // console.log("Getting Action")
+      // console.log(action)
       return action.isLoading;
     default:
       return state;
