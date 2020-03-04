@@ -70,7 +70,7 @@ export const removeAuth = (token) => {
     .then((response) => response.json())
     // .then((res) => dispatch({ type: 'LOG_OUT', csrf: false }))
     .then(res => dispatch(authLogout(false)))
-    // .then(res => dispatch(setupAuth()))
+    // .then(res => window.location.href = "/") Redirect home after logout
     .catch(() => dispatch(authErrored(true)));
   };
 }
