@@ -11,9 +11,14 @@ $theme-colors: (
   // "primary": #0000ff,
   // "danger": #ff4136
 
-  "primary": $copper
+  "primary": $copper,
+  "secondary": $coffee
 );
 
+body {
+  background-color: rgb(205, 148, 111) !important;
+  // background-color: $green !important;
+}
 
 // Spinner
 .loader {
@@ -27,6 +32,25 @@ $theme-colors: (
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+// Main Page
+.main-page {
+  padding: 1rem;
+}
+
+// Welcome
+.welcome {
+  padding: 2rem !important;
+  background-color: $diamond;
+  border-radius: .5em;
+}
+.welcome .jumbotron {
+  background-color: $diamond;
+}
+.welcome p, .welcome .btn {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 //Event
@@ -45,13 +69,14 @@ $theme-colors: (
 // }
 
 // Park
-.park .card-header {
-  background: $coffee;
-}
+// .park .card-header {
+//   // background: $coffee;
+// }
 
 // Event form
 .new-event {
-  border: .2em solid #ced4da;
+  // border: .2em solid #ced4da;
+  border: .2em solid $copper;
   border-radius: .5em;
   padding: 1em;
   margin-bottom: 1em;
