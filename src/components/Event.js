@@ -18,11 +18,12 @@ const Event = props => {
   // };
 
   const parks = event.nearParks ? event.nearParks.map(p => {
+    const start = event.start.date ? event.start.date : event.start.dateTime
     return (
       <Col sm={6} key={p.id}>
         {/* <Badge variant="coffee" onClick={addTrip(obj.id)}>Add Park to Trip!</Badge> */}
 
-        <Park park={p} token={props.token} addEvent={props.addEvent} />
+        <Park park={p} token={props.token} addEvent={props.addEvent} date={start} />
       </Col>
     );
   }) : '';
