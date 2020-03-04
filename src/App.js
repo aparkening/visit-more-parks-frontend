@@ -43,9 +43,9 @@ class App extends Component {
         <Container role="main" className="main-page">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
-            {/* <Route path='/events'>
+            <Route path='/events'>
               <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
-            </Route>  */}
+            </Route> 
             <Route path='/parks'>
               <ParksContainer token={this.props.csrf} loading={this.props.isLoading} />
             </Route>
