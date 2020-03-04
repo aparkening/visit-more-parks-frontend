@@ -1,22 +1,22 @@
 import React from 'react';
 import Event from './Event';
 
+import Accordion from 'react-bootstrap/Accordion';
+
 const Events = props => {
-  const { events } = props;
-  
-  console.log("Events")
-  console.log(props)
+  // console.log("Events")
+  // console.log(props)
 
-// debugger
-
-  const mapEvents = events.map(obj => <Event key={obj.id} event={obj} addEvent={props.addEvent} token={props.token} />)
+  const mapEvents = props.events.map(obj => <Event key={obj.id} event={obj} addEvent={props.addEvent} token={props.token} />)
 
   if (props.loading) {
     return (<div className="loader"></div>)
   } else {
     return (
       <div className="events">
-        {mapEvents}
+        <Accordion>
+          {mapEvents}
+        </Accordion>
       </div>
     )
   }
