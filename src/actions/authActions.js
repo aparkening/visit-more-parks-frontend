@@ -7,14 +7,7 @@ export const authErrored = (bool) => {
 
 export const authLoading = (bool) => {
   return {
-    type: 'GETTING_AUTHORIZATION',
-    isLoading: bool
-  };
-}
-
-export const authRemoving = (bool) => {
-  return {
-    type: 'REMOVING_AUTHORIZATION',
+    type: 'UPDATING_AUTHORIZATION',
     isLoading: bool
   };
 }
@@ -40,11 +33,14 @@ export const setupAuth = () => {
     fetch('http://localhost:3000/auth-check',{credentials: 'include'})
     .then((response) => {
       if (!response.ok) { throw Error(response.statusText); }
-      dispatch(authLoading(false));
+      // dispatch(authLoading(false));
       return response;
     })
     .then((response) => response.json())
-    .then(res => dispatch(authFetchSuccess(res.csrf_auth_token)))
+    .then(res => {
+      dispatch(authFetchSuccess(res.csrf_auth_token));
+      dispatch(authLoading(false));
+    })
     .catch(() => dispatch(authErrored(true)));
   }
 };
@@ -57,7 +53,7 @@ export const removeAuth = (token) => {
     'X-CSRF-TOKEN': token
   }
   return (dispatch) => {
-    dispatch(authRemoving(true));
+    dispatch(authLoading(true));
     fetch('http://localhost:3000/logout',{
       method: "DELETE",
       headers,
@@ -67,11 +63,14 @@ export const removeAuth = (token) => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      dispatch(authRemoving(false));
+      // dispatch(authLoading(false));
       return response;
     })
     .then((response) => response.json())
-    .then(res => dispatch(authLogout(false)))
+    .then(res => {
+      dispatch(authLogout(false));
+      dispatch(authLoading(false));
+    })
     .catch(() => dispatch(authErrored(true)));
   };
 }
