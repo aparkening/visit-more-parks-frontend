@@ -18,6 +18,7 @@ class App extends Component {
 
   // Get server authorization when component mounted
   componentDidMount() {
+    console.log("Component did mount.")
     if (!this.props.csrf) {this.props.setupAuth()}
   }
 
@@ -35,7 +36,7 @@ class App extends Component {
 
     return (
       <Router>
-        <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} loading={this.props.isLoading} />
+        <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} />
         <Container role="main" className="main-page">          
           <Switch>
             <Route exact path="/">{this.displayHome}</Route>
