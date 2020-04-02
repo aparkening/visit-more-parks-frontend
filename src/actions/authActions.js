@@ -29,17 +29,13 @@ export const authLogout = (csrf) => {
 export const setupAuth = () => {
   return (dispatch) => {
     dispatch(authLoading(true));
-    // dispatch({ type: 'GETTING_AUTHORIZATION' });
     fetch('http://localhost:3000/auth-check',{credentials: 'include'})
-      // .then(response => response.json())
-      // .then(responseJSON => dispatch({ type: 'ADD_AUTHORIZATION', csrf: responseJSON.csrf_auth_token }));
     .then((response) => {
       if (!response.ok) { throw Error(response.statusText); }
       dispatch(authLoading(false));
       return response;
     })
     .then((response) => response.json())
-    // .then((res) => dispatch({ type: 'ADD_AUTHORIZATION', csrf: res.csrf_auth_token }))
     .then(res => dispatch(authFetchSuccess(res.csrf_auth_token)))
     .catch(() => dispatch(authErrored(true)));
   }
