@@ -63,13 +63,13 @@ export const removeAuth = (token) => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      // dispatch(authLoading(false));
+      dispatch(authLoading(false));
       return response;
     })
     .then((response) => response.json())
     .then((res) => {
+      // dispatch(authLoading(false));
       dispatch(authLogout(false));
-      dispatch(authLoading(false));
     })
     .catch(() => dispatch(authErrored(true)));
   };
