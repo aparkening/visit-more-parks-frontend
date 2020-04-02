@@ -24,7 +24,7 @@ class App extends Component {
   // Display components based on login status
   displayHome = () => {
     return (
-      this.props.csrf ? <EventsContainer token={this.props.csrf} loading={this.props.isLoading} /> : <Welcome />
+      document.cookie.split(';').some((cookieItem) =>cookieItem.includes('logged_in=false')) ? <Welcome /> : <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
     );
   };
 
