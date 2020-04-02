@@ -15,7 +15,10 @@ class Navigation extends Component {
     return (
       <Navbar className="justify-content-center" bg="secondary" variant="dark" expand role="navigation">
         <Navbar.Brand href="/"><img className="logo" src="logo-park.svg" alt="Park logo" caption="Park by Flatart from the Noun Project"/> Visit More Parks</Navbar.Brand>
-        {this.props.token ? 
+        {document.cookie.split(';').some((cookieItem)           =>cookieItem.includes('logged_in=false')) ? 
+          <Nav>
+            <Nav.Item><Nav.Link href="http://localhost:3000/auth/google/redirect">Login with Google</Nav.Link></Nav.Item>
+          </Nav> :
           <Nav>
             <Nav.Item>
               <Nav.Link href="/events" activeclassname="active">Events</Nav.Link>  
@@ -26,9 +29,6 @@ class Navigation extends Component {
             <Nav.Item>
               <Nav.Link onClick={() => this.props.removeAuth(this.props.token)} >Logout</Nav.Link>
             </Nav.Item>
-          </Nav> : 
-          <Nav>
-            <Nav.Item><Nav.Link href="http://localhost:3000/auth/google/redirect">Login with Google</Nav.Link></Nav.Item>
           </Nav>
         }
       </Navbar>
