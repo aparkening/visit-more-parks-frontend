@@ -1,23 +1,20 @@
 // Override default variables before the import
 
-$diamond: #BAE5F9 !default;
+// Set color variables
 $copper: #C56C39 !default;
 $coffee: #6F4930 !default;
+$diamond: #BAE5F9 !default;
 $green: #56903A !default;
 $black-leather: #213A1B !default;
 
-
+// Override theme colors
 $theme-colors: (
-  // "primary": #0000ff,
-  // "danger": #ff4136
-
   "primary": $copper,
   "secondary": $coffee
 );
 
 body {
   background-color: rgb(205, 148, 111) !important;
-  // background-color: $green !important;
 }
 
 // Navigation
@@ -61,7 +58,7 @@ body {
   margin-top: 1.5rem;
 }
 
-//Event
+// Events
 .events,
 .parks {
   margin-bottom: 2rem;
@@ -84,17 +81,6 @@ body {
   text-align: left;
   padding: 0;
 }
-// .park .card-header,
-// .event .card-header {
-//   text-align: left;
-// }
-// .park .card-header .btn,
-// .event .card-header .btn {
-//   padding: 0;
-//   text-align: left;
-// }
-
-
 
 // Event form
 .new-event {
@@ -107,7 +93,6 @@ body {
 form label {
   font-weight: bold;
 }
-
 
 // Date Time Picker
 .react-datetime-picker__wrapper {
