@@ -11,13 +11,17 @@ const Parks = props => {
 
   // const parks = props.parks.map(obj => <Park key={obj.id} park={obj} favoritePark={props.favoritePark} unFavoritePark={props.unFavoritePark} loading={props.loading} />)
 
-  return (
-    <div className="parks">
-      <Accordion>
-        {parks}
-      </Accordion>
-    </div>
-  )
+  if (props.loading) {
+    return (<div className="loader"></div>)
+  } else {
+    return (
+      <div className="parks">
+        <Accordion>
+          {parks}
+        </Accordion>
+      </div>
+    )
+  }
 };
 
 export default Parks;
