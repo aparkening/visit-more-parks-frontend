@@ -8,7 +8,6 @@ export const authErrored = (state = false, action) => {
 }
 
 export const authLoading = (state = false, action) => {
-  console.log(action)
   switch(action.type) {
     case 'UPDATING_AUTHORIZATION':
       return action.isLoading;
