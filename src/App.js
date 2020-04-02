@@ -18,16 +18,28 @@ class App extends Component {
 
   // Get server authorization when component mounted
   componentDidMount() {
-    console.log("Component did mount.")
     if (!this.props.csrf) {this.props.setupAuth()}
   }
 
   // Display components based on login status
-  displayHome = () => {
-    return (
-      document.cookie.split(';').some((cookieItem) =>cookieItem.includes('logged_in=false')) ? <Welcome /> : <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
-    );
-  };
+  // displayHome = () => {
+  //   return (
+  //     document.cookie.split(';').some((cookieItem) =>cookieItem.includes('logged_in=false')) ? <Welcome /> : <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
+  //   );
+  // };
+
+  displayComponent = (page) => {
+    if (document.cookie.split(';').some((cookieItem) =>cookieItem.includes('logged_in=false'))) {
+      return (<Welcome />)
+    } else {
+      switch (page){
+        case 'parks':
+          return (<ParksContainer token={this.props.csrf} loading={this.props.isLoading} />)
+        default:
+          return (<EventsContainer token={this.props.csrf} loading={this.props.isLoading} />)
+      }
+    }
+  }
 
   render() {
     if (this.props.hasErrored) {
@@ -39,13 +51,9 @@ class App extends Component {
         <Navigation removeAuth={this.props.removeAuth} token={this.props.csrf} />
         <Container role="main" className="main-page">          
           <Switch>
-            <Route exact path="/">{this.displayHome}</Route>
-            <Route path='/events'>
-              <EventsContainer token={this.props.csrf} loading={this.props.isLoading} />
-            </Route> 
-            <Route path='/parks'>
-              <ParksContainer token={this.props.csrf} loading={this.props.isLoading} />
-            </Route>
+            <Route exact path="/">{this.displayComponent('home')}</Route>
+            <Route path='/events'>{this.displayComponent('events')}</Route> 
+            <Route path='/parks'>{this.displayComponent('parks')}</Route>
           </Switch>
         </Container>
       </Router>
