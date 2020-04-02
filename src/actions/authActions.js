@@ -12,6 +12,13 @@ export const authLoading = (bool) => {
   };
 }
 
+export const authRemoving = (bool) => {
+  return {
+    type: 'REMOVING_AUTHORIZATION',
+    isLoading: bool
+  };
+}
+
 export const authFetchSuccess = (csrf) => {
   return {
     type: 'ADD_AUTHORIZATION',
@@ -26,6 +33,7 @@ export const authLogout = (csrf) => {
   };
 }
 
+// Set csrf token
 export const setupAuth = () => {
   return (dispatch) => {
     dispatch(authLoading(true));
@@ -41,16 +49,15 @@ export const setupAuth = () => {
   }
 };
 
+// Remove csrf token
 export const removeAuth = (token) => {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
     'X-CSRF-TOKEN': token
   }
-  // console.log(headers)
   return (dispatch) => {
-    dispatch(authLoading(true));
-    // dispatch({ type: 'REMOVING_AUTHORIZATION' });
+    dispatch(authRemoving(true));
     fetch('http://localhost:3000/logout',{
       method: "DELETE",
       headers,
@@ -60,13 +67,11 @@ export const removeAuth = (token) => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      dispatch(authLoading(false));
+      dispatch(authRemoving(false));
       return response;
     })
     .then((response) => response.json())
-    // .then((res) => dispatch({ type: 'LOG_OUT', csrf: false }))
     .then(res => dispatch(authLogout(false)))
-    // .then(res => window.location.href = "/") Redirect home after logout
     .catch(() => dispatch(authErrored(true)));
   };
 }
