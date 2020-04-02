@@ -37,7 +37,7 @@ export const setupAuth = () => {
       return response;
     })
     .then((response) => response.json())
-    .then(res => {
+    .then((res) => {
       dispatch(authFetchSuccess(res.csrf_auth_token));
       dispatch(authLoading(false));
     })
@@ -67,7 +67,7 @@ export const removeAuth = (token) => {
       return response;
     })
     .then((response) => response.json())
-    .then(res => {
+    .then((res) => {
       dispatch(authLogout(false));
       dispatch(authLoading(false));
     })
