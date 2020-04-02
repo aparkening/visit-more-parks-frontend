@@ -10,10 +10,9 @@ export const authErrored = (state = false, action) => {
 }
 
 export const authLoading = (state = false, action) => {
+  console.log(action)
   switch(action.type) {
-    case 'GETTING_AUTHORIZATION':
-      return action.isLoading;
-    case 'REMOVING_AUTHORIZATION':
+    case 'UPDATING_AUTHORIZATION':
       return action.isLoading;
     default:
       return state;
