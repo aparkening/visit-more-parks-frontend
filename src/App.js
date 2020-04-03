@@ -34,9 +34,9 @@ class App extends Component {
     } else {
       switch (page){
         case 'parks':
-          return (<ParksContainer token={this.props.csrf} loading={this.props.isLoading} />)
+          return (<ParksContainer />)
         default:
-          return (<EventsContainer token={this.props.csrf} loading={this.props.isLoading} />)
+          return (<EventsContainer />)
       }
     }
   }
