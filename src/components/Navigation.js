@@ -15,16 +15,13 @@ class Navigation extends Component {
     return (
       <Navbar className="justify-content-center" bg="secondary" variant="dark" expand role="navigation">
         <Navbar.Brand href="/"><img className="logo" src="logo-park.svg" alt="Park logo" caption="Park by Flatart from the Noun Project"/> Visit More Parks</Navbar.Brand>
-        {document.cookie.split(';').some((cookieItem)           =>cookieItem.includes('logged_in=false')) ? 
+        {document.cookie.split(';').some((cookieItem) =>cookieItem.includes('logged_in=false')) ? 
           <Nav>
             <Nav.Item><Nav.Link href="http://localhost:3000/auth/google/redirect">Login with Google</Nav.Link></Nav.Item>
           </Nav> :
           <Nav>
             <Nav.Item>
-              <Nav.Link href="/events" activeclassname="active">Events</Nav.Link>  
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/parks" activeclassname="active">Parks</Nav.Link>
+              <Nav.Link href="/parks" activeclassname="active">All Parks</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link onClick={() => this.props.removeAuth(this.props.token)} >Logout</Nav.Link>
