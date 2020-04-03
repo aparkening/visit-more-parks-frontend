@@ -8,7 +8,8 @@ const Events = props => {
 
   return (
     <div className="events">
-      <h2>Upcoming Calendar Events</h2>     
+      <h2>Upcoming Calendar Events</h2>  
+      <div class="instructions">Select an event below to see and add nearby parks to your itinerary.</div>
       <Accordion>
         {mapEvents}
       </Accordion>
