@@ -4,22 +4,16 @@ import ParkEvent from './ParkEvent';
 import Accordion from 'react-bootstrap/Accordion';
 
 const ParkEvents = props => {
-  // console.log("ParkEvents")
-  // console.log(props)
-
   const pEvents = props.parkEvents.map(obj => <ParkEvent key={obj.id} parkEvent={obj} deleteEvent={props.deleteEvent} updateParkEvent={props.updateParkEvent} token={props.token} />)
 
-  if (props.loading) {
-    return (<div className="loader"></div>)
-  } else {
-    return (
-      <div className="events">
-        <Accordion>
-          {pEvents}
-        </Accordion>
-      </div>
-    )
-  }
+  return (
+    <div className="events">
+      <h2>Park Visits You've Added</h2>
+      <Accordion>
+        {pEvents}
+      </Accordion>
+    </div>
+  )
 };
 
 export default ParkEvents;
