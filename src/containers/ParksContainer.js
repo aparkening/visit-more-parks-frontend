@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Parks from '../components/Parks'
 
+import Container from 'react-bootstrap/Container'
 import Alert from 'react-bootstrap/Alert'
+import Spinner from 'react-bootstrap/Spinner'
 
 import { fetchParks } from '../actions/parkActions'
 
@@ -26,10 +28,15 @@ class ParksContainer extends Component {
     }
 
     return ( 
-      <div className="ParksContainer container">
+      <Container className="ParksContainer container">
         <h1>Parks</h1>
 
-        {this.props.isLoading? <><Alert variant="info">Grabbing the latest parks info...</Alert><div className="loader"></div></> : 
+        {this.props.isLoading? <>
+          <Alert variant="info">Grabbing the latest parks info...</Alert>
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+          </> : 
           <>
           {this.props.parks.length ? 
           <Parks 
@@ -40,7 +47,7 @@ class ParksContainer extends Component {
           }
           </>
         }
-      </div>
+      </Container>
     );
   }
 }

@@ -6,6 +6,7 @@ import ParkEvents from '../components/ParkEvents'
 
 import Container from 'react-bootstrap/Container'
 import Alert from 'react-bootstrap/Alert'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/eventActions'
@@ -34,7 +35,11 @@ class EventsContainer extends Component {
       <Container className="EventsContainer">
         <h1>Events</h1>
 
-        {this.props.isLoading? <><Alert variant="info">Grabbing the latest event info...</Alert><div className="loader"></div></> : 
+        {this.props.isLoading? <>
+          <Alert variant="info">Grabbing the latest event info...</Alert>
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner></> : 
           <>
           {this.props.parkEvents.length ? 
           <ParkEvents 
