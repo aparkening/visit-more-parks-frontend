@@ -22,28 +22,24 @@ const Park = props => {
       </Card>
     </Accordion>
     
-  if (props.loading) {
-    return (<div className="loader"></div>)
-  } else {
-    return (
-      <Card className="park" bg="white" border="coffee">
-        <Card.Header as="h5">
-          <Accordion.Toggle as={Button} variant="link" eventKey={park.id}>
-            {park.fullName}
-          </Accordion.Toggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey={park.id}>
-          <Card.Body className="mb-4">
-          <Card.Text>{park.description}</Card.Text>
-            <div className="event-heading"><img src="icon-location.svg" alt="Location icon" caption="Location by Neha Tyagi from the Noun Project" /> {park.address}</div>
-            <Card.Link href={park.url}><img src="icon-url.svg" alt="URL icon" caption="url by Agni from the Noun Project" /> {park.url}</Card.Link>
+  return (
+    <Card className="park" bg="white" border="coffee">
+      <Card.Header as="h5">
+        <Accordion.Toggle as={Button} variant="link" eventKey={park.id}>
+          {park.fullName}
+        </Accordion.Toggle>
+      </Card.Header>
+      <Accordion.Collapse eventKey={park.id}>
+        <Card.Body className="mb-4">
+        <Card.Text>{park.description}</Card.Text>
+          {park.latLong ? <div className="event-heading"><img src="icon-location.svg" alt="Location icon" caption="Location by Neha Tyagi from the Noun Project" /> {park.address}</div> : null }
+          <Card.Link href={park.url}><img src="icon-url.svg" alt="URL icon" caption="url by Agni from the Noun Project" /> {park.url}</Card.Link>
 
-            {props.token && props.addEvent ? accordianForm : ''}
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    )
-  }
+          {props.token && props.addEvent ? accordianForm : ''}
+        </Card.Body>
+      </Accordion.Collapse>
+    </Card>
+  )
 };
 
 export default Park;
