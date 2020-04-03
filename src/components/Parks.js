@@ -9,8 +9,7 @@ const Parks = props => {
   // const parks = props.parks.map(obj => <Park key={obj.id} park={obj} favoritePark={props.favoritePark} unFavoritePark={props.unFavoritePark} loading={props.loading} />)
   
   return (
-    <div className="parks">
-      <h2>Parks</h2>    
+    <div className="parks">   
       <Accordion>
         {parks}
       </Accordion>
