@@ -35,27 +35,25 @@ class EventsContainer extends Component {
         <h1>Events</h1>
 
         {this.props.isLoading? <><Alert variant="info">Grabbing the latest event info...</Alert><div className="loader"></div></> : 
-        <>
-        {this.props.parkEvents.length ? 
-        <ParkEvents 
-          parkEvents={this.props.parkEvents}
-          token={this.props.token}
-          deleteEvent={this.props.deleteEvent}
-          updateEvent={this.props.updateEvent}
-          loading={this.props.isLoading}
-        /> : null
-        }
+          <>
+          {this.props.parkEvents.length ? 
+          <ParkEvents 
+            parkEvents={this.props.parkEvents}
+            token={this.props.token}
+            deleteEvent={this.props.deleteEvent}
+            updateEvent={this.props.updateEvent}
+          /> : null
+          }
 
-        {this.props.googleEvents.length ? 
-        <Events 
-          events={this.props.googleEvents}
-          token={this.props.token}
-          addEvent={this.props.addEvent}
-          loading={this.props.isLoading}
-        /> : <div>Oh no, you don't have any calendar events with locations! Please ensure your events have a location to find the nearest National Park.</div>
+          {this.props.googleEvents.length ? 
+          <Events 
+            events={this.props.googleEvents}
+            token={this.props.token}
+            addEvent={this.props.addEvent}
+          /> : <div>Oh no, you don't have any calendar events with locations! Please ensure your events have a location to find the nearest National Park.</div>
+          }
+          </>
         }
-        </>
-      }
       </Container>
     );
   }
