@@ -18,8 +18,7 @@ const store = createStore(
   )
 );
 
-
-
+// Allow App to access Redux store
 ReactDOM.render(
   <Provider store={store}>
     <App />
