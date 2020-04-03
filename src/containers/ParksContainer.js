@@ -8,8 +8,9 @@ import { fetchParks } from '../actions/parkActions'
 
 class ParksContainer extends Component {
   componentDidMount() {
-    // if (this.props.token) {this.props.fetchParks(this.props.token)}
-    this.props.fetchParks(this.props.token)
+    if (!this.props.parks.length) {
+      this.props.fetchParks(this.props.token)
+    }
   }
 
   render() {
@@ -27,12 +28,18 @@ class ParksContainer extends Component {
     return ( 
       <div className="ParksContainer container">
         <h1>Parks</h1>
-        <Parks 
-          parks={this.props.parks}
-          // favoritePark={this.props.favoritePark}
-          // unFavoritePark={this.props.unFavoritePark}
-          loading={this.props.isLoading}
-        />
+
+        {this.props.isLoading? <><Alert variant="info">Grabbing the latest parks info...</Alert><div className="loader"></div></> : 
+          <>
+          {this.props.parks.length ? 
+          <Parks 
+            parks={this.props.parks}
+            // favoritePark={this.props.favoritePark}
+            // unFavoritePark={this.props.unFavoritePark}
+          /> : <div>Oh no, the parks haven't loaded. Please refresh the page to try again.</div>
+          }
+          </>
+        }
       </div>
     );
   }
@@ -40,6 +47,7 @@ class ParksContainer extends Component {
 
 const mapStateToProps = state => {
   return {
+    token: state.csrf,
     parks: state.parks,
     hasErrored: state.parksErrored,
     isLoading: state.parksLoading
