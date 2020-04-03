@@ -60,7 +60,7 @@ export const addEvent = (token, obj) => {
   // console.log("Adding event to Rails server...")
   // console.log(obj)
   return (dispatch) => {
-    dispatch(eventsLoading(true));
+    // dispatch(eventsLoading(true));
     fetch(`http://localhost:3000/api/v1/events`,{
       method: "POST",
       headers,
@@ -73,11 +73,14 @@ export const addEvent = (token, obj) => {
         // console.log(obj) 
         throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      // dispatch(eventsLoading(false));
       return response;
     })
     .then((response) => response.json())
-    .then((res) => dispatch({ type: 'ADD_EVENT', event: res.event }))
+    .then((res) => {
+      dispatch({ type: 'ADD_EVENT', event: res.event });
+      // dispatch(eventsLoading(false));
+    })
     .catch(() => dispatch(eventsErrored(true)))
   };
 }
