@@ -39,12 +39,15 @@ export const fetchParks = (token) => {
       if (!response.ok) {
           throw Error(response.statusText);
       }
-      dispatch(parksLoading(false));
+      // dispatch(parksLoading(false));
       return response;
-  })
-  .then((response) => response.json())
-  .then((res) => dispatch({ type: 'ADD_PARKS', parks: res.parks }))
-  .catch(() => dispatch(parksErrored(true)));
+    })
+    .then((response) => response.json())
+    .then((res) => {
+      dispatch({ type: 'ADD_PARKS', parks: res.parks });
+      dispatch(parksLoading(false));
+    })
+    .catch(() => dispatch(parksErrored(true)));
   }
 }
 
