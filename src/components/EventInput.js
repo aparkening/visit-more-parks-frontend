@@ -26,7 +26,7 @@ class EventInput extends Component {
     })
   }
 
-  // Send text to addRestaurant on submit
+  // Send event to parent
   handleOnSubmit = event => {
     event.preventDefault();
     const newEvent = {...this.state}
