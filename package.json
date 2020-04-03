@@ -4,16 +4,16 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "csurf": "^1.11.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
-    "react": "^16.13.0",
-    "react-bootstrap": "^1.0.0-beta.16",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
     "react-datetime-picker": "^2.9.0",
-    "react-dom": "^16.13.0",
+    "react-dom": "^16.13.1",
     "react-moment": "^0.9.7",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
@@ -23,7 +23,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "thunk": "^0.0.1",
-    "uuid": "^7.0.1"
+    "uuid": "^7.0.3"
   },
   "scripts": {
     "start": "PORT=8000 react-scripts start",
