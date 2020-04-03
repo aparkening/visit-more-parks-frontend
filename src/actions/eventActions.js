@@ -36,11 +36,14 @@ export const fetchEvents = (token) => {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      dispatch(eventsLoading(false));
+      // dispatch(eventsLoading(false));
       return response;
     })
     .then((response) => response.json())
-    .then((res) => dispatch({ type: 'ADD_EVENTS', googleEvents: res.googleEvents, parkEvents: res.parkEvents }))
+    .then((res) => {
+      dispatch({ type: 'ADD_EVENTS', googleEvents: res.googleEvents, parkEvents: res.parkEvents });
+      dispatch(eventsLoading(false));
+    })
     .catch(() => dispatch(eventsErrored(true)))
   };
 }
