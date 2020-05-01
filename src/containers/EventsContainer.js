@@ -27,16 +27,18 @@ class EventsContainer extends Component {
       return <Alert variant="danger">There was an error loading events. Please try again.</Alert>;
     }
 
-    if (!this.props.token) {
-      return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
-    }
+    // if (!this.props.token) {
+    //   return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
+    // }
 
     return ( 
       <Container className="EventsContainer">
         <h1>Events</h1>
+        
+        {/* Add Alert for successful add and remove */}
 
         {this.props.isLoading? <>
-          <Alert variant="info">Grabbing the latest event info...</Alert>
+          <Alert variant="info">Grabbing the latest calendar events...</Alert>
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner></> : 
