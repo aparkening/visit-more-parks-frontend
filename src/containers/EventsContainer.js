@@ -19,6 +19,13 @@ class EventsContainer extends Component {
     }
   }
 
+  // Collapse all event and park accordions
+  collapseAll = () => {
+    for (let i = 0; i < document.getElementsByClassName("event").length; i++) {
+      document.getElementsByClassName("event")[i].querySelector("div.collapse").classList.remove("show")
+    }
+  }
+
   render() {
     // console.log("Events Container")
     // console.log(this.props)
@@ -29,6 +36,11 @@ class EventsContainer extends Component {
     // if (!this.props.token) {
     //   return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     // }
+
+    // When alert is visible, collapse all accordions
+    if (this.props.isVisible) {
+      this.collapseAll()
+    }
 
     return ( 
       <Container className="EventsContainer">
