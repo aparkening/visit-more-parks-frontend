@@ -19,6 +19,14 @@ export const eventsFetchSuccess = (events) => {
   };
 }
 
+export const showAlert = (bool) => {
+  console.log("showAlert action called")
+  return {
+    type: 'SHOW_ALERT',
+    isVisible: bool
+  };
+}
+
 export const fetchEvents = (token) => {
   const headers = {
     'Accept': 'application/json',
@@ -79,6 +87,7 @@ export const addEvent = (token, obj) => {
     .then((response) => response.json())
     .then((res) => {
       dispatch({ type: 'ADD_EVENT', event: res.event });
+      dispatch(showAlert(true));
       // dispatch(eventsLoading(false));
     })
     .catch(() => dispatch(eventsErrored(true)))
@@ -106,7 +115,10 @@ export const deleteEvent = (token, id) => {
       return response;
     })
     .then((response) => response.json())
-    .then((res) => dispatch({ type: 'DELETE_EVENT', id }))
+    .then((res) => {
+      dispatch({ type: 'DELETE_EVENT', id })
+      dispatch(showAlert(true));
+    })
     .catch(() => dispatch(eventsErrored(true)))
   };
 }

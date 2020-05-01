@@ -16,6 +16,15 @@ export const eventsLoading = (state = false, action) => {
   }
 }
 
+export const showAlert = (state = false, action) => {
+  switch(action.type) {
+    case 'SHOW_ALERT':
+      return action.isVisible;
+    default:
+      return state;
+  }
+}
+
 export const events = (state = {
   googleEvents: [],
   parkEvents: []
