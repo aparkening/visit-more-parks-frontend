@@ -20,7 +20,6 @@ export const eventsFetchSuccess = (events) => {
 }
 
 export const showAlert = (bool) => {
-  console.log("showAlert action called")
   return {
     type: 'SHOW_ALERT',
     isVisible: bool
