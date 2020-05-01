@@ -9,7 +9,7 @@ import Alert from 'react-bootstrap/Alert'
 import Spinner from 'react-bootstrap/Spinner'
 
 
-import { fetchEvents, addEvent, deleteEvent, updateEvent, showAlert } from '../actions/eventActions'
+import { fetchEvents, addEvent, deleteEvent, updateEvent } from '../actions/eventActions'
 // import { fetchParkEvents, addParkEvent, deleteParkEvent, updateParkEvent } from '../actions/parkEventActions'
 
 class EventsContainer extends Component {
@@ -26,6 +26,7 @@ class EventsContainer extends Component {
     if (this.props.hasErrored) {
       return <Alert variant="danger">There was an error loading events. Please try again.</Alert>;
     }
+
     // if (!this.props.token) {
     //   return <Alert variant="warning">You've been logged out. Please log in to see content.</Alert>;
     // }
@@ -33,10 +34,8 @@ class EventsContainer extends Component {
     return ( 
       <Container className="EventsContainer">
         <h1>Events</h1>
-      
-        <Alert variant="success" show={this.props.isVisible}>
-        Event updated!
-        </Alert>
+        
+        {/* Add Alert for successful add and remove */}
 
         {this.props.isLoading? <>
           <Alert variant="info">Grabbing the latest calendar events...</Alert>
@@ -73,8 +72,7 @@ const mapStateToProps = state => {
     googleEvents: state.events.googleEvents,
     parkEvents: state.events.parkEvents,
     hasErrored: state.eventsErrored,
-    isLoading: state.eventsLoading,
-    isVisible: state.showAlert
+    isLoading: state.eventsLoading
   }  
 }
 
@@ -82,8 +80,7 @@ const mapDispatchToProps = dispatch => ({
   fetchEvents: (token) => dispatch(fetchEvents(token)),
   addEvent: (token, obj) => dispatch(addEvent(token, obj)),
   deleteEvent: (token, id) => dispatch(deleteEvent(token, id)),
-  updateEvent: (token, id) => dispatch(updateEvent(token, id)),
-  switchVisible: () => dispatch(showAlert(false))
+  updateEvent: (token, id) => dispatch(updateEvent(token, id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer)
