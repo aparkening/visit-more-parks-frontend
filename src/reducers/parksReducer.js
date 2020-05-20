@@ -24,34 +24,3 @@ export const parks = (state = [], action) => {
       return state;
   }
 }
-
-
-// export const parksReducer = (state = [], action) => {
-//   switch(action.type) {
-//     // case 'LOADING_PARKS':
-//     //   return {
-//     //     ...state,
-//     //     parks: [...state.parks],
-//     //     loading: true
-//     //   }
-//     case 'ADD_PARKS':
-//       return action.parks;
-
-//     // case 'ADD_FAVORITE':
-//     //   return {
-//     //     ...state,
-//     //     parks: action.parks,
-//     //     loading: false
-//     //   }
-//     // case 'REMOVE_FAVORITE':
-//     //   return {
-//     //     ...state,
-//     //     parks: action.parks,
-//     //     loading: false
-//     //   }      
-//     default:
-//       return state;
-//   }
-// }
- 
-// export default parksReducer;
