@@ -1,8 +1,5 @@
 import { combineReducers } from "redux";
-// import * as reducers from './reducers';
 
-// As separate files
-// import eventsReducer from './eventsReducer';
 import { authErrored, authLoading, csrf } from './authReducer';
 import { parksErrored, parksLoading, parks } from './parksReducer';
 import { eventsErrored, eventsLoading, showAlert, events } from './eventsReducer';
