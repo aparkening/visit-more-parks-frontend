@@ -30,7 +30,7 @@ export const authLogout = (csrf) => {
 export const setupAuth = () => {
   return (dispatch) => {
     dispatch(authLoading(true));
-    fetch('http://localhost:3000/auth-check',{credentials: 'include'})
+    fetch('https://visit-more-parks-api.herokuapp.com/auth-check',{credentials: 'include'})
     .then((response) => {
       if (!response.ok) { throw Error(response.statusText); }
       // dispatch(authLoading(false));
@@ -54,7 +54,7 @@ export const removeAuth = (token) => {
   }
   return (dispatch) => {
     dispatch(authLoading(true));
-    fetch('http://localhost:3000/logout',{
+    fetch('https://visit-more-parks-api.herokuapp.com/logout',{
       method: "DELETE",
       headers,
       credentials: 'include'

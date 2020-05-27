@@ -27,7 +27,7 @@ export const fetchParkEvents = (token) => {
   }
   return (dispatch) => {
     dispatch(parkEventsLoading(true));
-    fetch('http://localhost:3000/api/v1/park-events',{
+    fetch('https://visit-more-parks-api.herokuapp.com/api/v1/park-events',{
       method: "GET",
       headers,
       credentials: 'include'
@@ -58,7 +58,7 @@ export const addParkEvent = (token, obj) => {
   return (dispatch) => {
     dispatch(parkEventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
-    fetch(`http://localhost:3000/api/v1/park-events`,{
+    fetch(`https://visit-more-parks-api.herokuapp.com/api/v1/park-events`,{
       method: "POST",
       headers,
       credentials: 'include',
@@ -88,7 +88,7 @@ export const deleteParkEvent = (token, id) => {
   return (dispatch) => {
     dispatch(parkEventsLoading(true));
     // dispatch({ type: 'DELETING_EVENT' });
-    fetch(`http://localhost:3000/api/v1/park-events/#{id}`,{
+    fetch(`https://visit-more-parks-api.herokuapp.com/api/v1/park-events/#{id}`,{
       method: "DELETE",
       headers,
       credentials: 'include'
@@ -115,7 +115,7 @@ export const updateParkEvent = (token, id) => {
   return (dispatch) => {
     dispatch(parkEventsLoading(true));
     // dispatch({ type: 'UPDATING_EVENT' });
-    fetch(`http://localhost:3000/api/v1/park-events/#{id}`,{
+    fetch(`https://visit-more-parks-api.herokuapp.com/api/v1/park-events/#{id}`,{
       method: "PATCH",
       headers,
       credentials: 'include'

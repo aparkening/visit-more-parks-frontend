@@ -30,7 +30,7 @@ export const fetchParks = (token) => {
   return (dispatch) => {
     dispatch(parksLoading(true));
     // dispatch({ type: 'LOADING_PARKS' });
-    fetch('http://localhost:3000/api/v1/parks',{
+    fetch('https://visit-more-parks-api.herokuapp.com/api/v1/parks',{
       method: "GET",
       headers,
       credentials: 'include'
@@ -61,7 +61,7 @@ export const favoritePark = (token, id) => {
   return (dispatch) => {
     // dispatch({ type: 'FAVORITING_PARK' });
     dispatch(parksLoading(true));
-    fetch(`http://localhost:3000/api/v1/parks/favorite/#{id}`,{
+    fetch(`https://visit-more-parks-api.herokuapp.com/api/v1/parks/favorite/#{id}`,{
       method: "POST",
       headers,
       credentials: 'include'
@@ -89,7 +89,7 @@ export const unFavoritePark = (token, id) => {
   return (dispatch) => {
     // dispatch({ type: 'UN_FAVORITING_PARK' });
     dispatch(parksLoading(true));
-    fetch(`http://localhost:3000/api/v1/parks/unfavorite/#{id}`,{
+    fetch(`https://visit-more-parks-api.herokuapp.com/api/v1/parks/unfavorite/#{id}`,{
       method: "POST",
       headers,
       credentials: 'include'
