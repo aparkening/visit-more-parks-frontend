@@ -4,7 +4,6 @@ Visit More Parks is an app that suggests nearby U.S. National Parks to events in
 
 This repository houses the React frontend interacts with the [Rails API](https://github.com/aparkening/visit-more-parks-api). 
 
-
 **What It Does**
 - The user logs in with their Google Calendar account.
 - US National Parks are pre-loaded with geocoded coordinates and addresses (using the [NPS.gov Parks API](https://www.nps.gov/subjects/developer/index.htm) and the [Geocoder Ruby gem](https://github.com/alexreisner/geocoder)).
@@ -14,18 +13,15 @@ This repository houses the React frontend interacts with the [Rails API](https:/
 - All 497 National Parks are browsable.
 
 ## Installation
+*Note*: This project's Google Calendar API will only work for webmeadow.com Google users. Non-webmeadow accounts won't be able to log in or use this app!
 
 1. Install the [Rails API](https://github.com/aparkening/visit-more-parks-api). 
 2. Install app
 ```
-    $ yarn install 
-    or 
     $ npm install
 ```
 3. Start server, which will also open [http://localhost:8000](http://localhost:8000) in your browser. The page will reload if you make edits. You will also see any lint errors in the console.
 ```
-    $ yarn start 
-    or 
     $ npm start
 ```
 
@@ -48,34 +44,6 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Tea Tastes project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/aparkening/recipe_costs_api/blob/master/CODE_OF_CONDUCT.md).
-
-
-## More Yarn Commands
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More About React
 
