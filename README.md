@@ -28,7 +28,7 @@ This repository houses the React frontend interacts with the [Rails API](https:/
 
 Browse, create, and edit events and parks! 
 
-- Log in with your Google account to see upcoming events and nearby parks. Google Calendar events need a location in the format <city>, <state> to get matched with parks.
+- Log in with your Google account to see upcoming events and nearby parks. Google Calendar events need a location in the format `city, state` to get matched with parks.
 - Navigate to 'Parks' to browse all United States National Parks.
 
 
