@@ -1,19 +1,18 @@
 # Visit More Parks
 
-Visit More Parks is an app that suggests nearby U.S. National Parks to events in your Google Calendar. The app also makes it easy to add a park visit to your calendar.
+Visit More Parks is an app that suggests U.S. National Parks near events in your Google Calendar. The app also makes it easy to add a park visit to your calendar.
 
 This repository houses the React frontend interacts with the [Rails API](https://github.com/aparkening/visit-more-parks-api). 
 
 **What It Does**
-- The user logs in with their Google Calendar account.
-- US National Parks are pre-loaded with geocoded coordinates and addresses (using the [NPS.gov Parks API](https://www.nps.gov/subjects/developer/index.htm) and the [Geocoder Ruby gem](https://github.com/alexreisner/geocoder)).
+- Users log in with their Google Calendar account.
+- U.S. National Parks are pre-loaded with geocoded coordinates and addresses (using the [NPS.gov Parks API](https://www.nps.gov/subjects/developer/index.htm) and the [Geocoder Ruby gem](https://github.com/alexreisner/geocoder)).
 - Upcoming calendar events are geocoded and displayed with their nearby parks.
-- The user can add visits to any of the parks as calendar events.
-- Those new events include park information, such as description, address, and URL.
-- All 497 National Parks are browsable.
+- Users browse, add, and remove nearby park visits, automatically updating Google Calendar.
+- All National Parks are browsable.
 
 ## Installation
-*Note*: This project's Google Calendar API will only work for webmeadow.com Google users. Non-webmeadow accounts won't be able to log in or use this app!
+**Note**: This project's Google Calendar API will only work for webmeadow.com Google users. Non-webmeadow accounts won't be able to log in or use this app!
 
 1. Install the [Rails API](https://github.com/aparkening/visit-more-parks-api). 
 2. Install app
